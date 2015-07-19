@@ -1,7 +1,38 @@
 doctype html
 html
   head
-    title= title
-    link(rel='stylesheet', href='/stylesheets/style.css')
+    meta(charset="utf-8")
+    title=JuguemosConLasSenas
+    link(rel='stylesheet', href='/css/bootstrap.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+    script(type='text/javascript' src='/js/jquery-1.11.2.min.js')
+    script(type='text/javascript' src='/js/script.js') 
   body
-    block content
+    #logo
+      a(href="/")
+        img(src="/images/logo.png")
+    a(href="/")
+      #titulo
+        h1 JUGUEMOS CON LAS SEÑAS
+    #menu 
+      ul
+        li 
+          a(href="/quienesSomos") 
+            b Quiénes Somos
+        li 
+          a(href="/practiquemos") 
+            b Practiquemos
+        li 
+          a(href="/juguemos") 
+            b Juguemos 
+        li 
+          a(href="/contactanos") 
+            b Contáctanos 
+    #contenido
+      block content
+    #piePagina
+      #escudo
+        img(src="/images/escudo.png")
+      #creditos
+        p Universidad Distrital Francisco José de Caldas - Ingeniería de Sistemas - Grupo de Investigación VIRTUS
+        p Viviana Cadena Díaz - Arley Carantón Galeano / Director: Fernando Martínez Rodríguez
