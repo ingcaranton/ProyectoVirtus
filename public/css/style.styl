@@ -1,3 +1,6 @@
+body
+  overflow-x hidden
+
 #logo
   float left
   width 20%
@@ -10,15 +13,36 @@
   width 50%
   margin 1% 2% 2% 2%
   h1 
-    color white
-    text-align center 
+    text-align center
     font oblique bold 380% purisa 
+    p.arriba
+      margin-bottom -8%
+      margin-top -4%
+    p.abajo
+      margin-top 1%
+    .stroke 
+      font-size 150%
+      letter-spacing 0
+      text-shadow -4px -4px 4px #fff, 4px -4px 4px #fff, -4px 4px 4px #fff, 4px 4px 4px #fff
+    .naranja
+      color #f6a800
+    .rojo
+      color #f41313
+    .verde
+      color #97be0d
+    .rosado
+      color #ef8f9b
+    .azul
+      color #009cd1
+    .verdeO 
+      color #367c2a
+    .fuccia
+      color #e2004f
 #menu
   background rgba(0, 0, 1, 0.5)
   width 24%
-  margin 4% 3%
+  margin 0 3% 1% 3%
   padding 1%
-  min-height 100px
   float left
   
   ul 
@@ -36,25 +60,112 @@
         color white
         b 
           text-align center
+          
+#novedades
+  background rgba(0, 0, 1, 0.5)
+  width 24%
+  margin 1% 3% 4% 3%
+  padding 1%
+  position relative
+  float left
+  
+  img
+    width 100%
+    
+  p#fecha
+    color black
+    text-align center
+    width 100%
+  
+  p#noticia
+    width 100%
+    text-align center
+    color white
 
 #contenido
   background rgba(0, 0, 1, 0.5)
   width 60%
-  margin 4% 5%
+  margin 0 5%
   min-height 400px
-  float left
+  float right
   
   h1 
     color white
+  #home
+    margin 5%
+    width 100%
   
-  iframe
-    height 200px
+  #informate
+    margin 5%
+    h1 
+      width 100%
+      text-align center
+      color white
+    div 
+      h2
+        width 100%
+        color black
+      p 
+        width 100%
+        color white
+        text-align justify
+      img 
+        width 50%
+        margin 2% 25%
+  
+#redesSociales
+  width 100%
+  float left
+  margin -1% 30%
+  div 
+    margin 3% 5%
+  a.facebook
+    .icon 
+      float left  
+      width 50px
+      height 50px 
+      background-size 100%
+      background-image url("/images/facebookBlanco.png") 
+      background-repeat no-repeat
+    .icon:hover 
+      cursor pointer
+      background-image url("/images/facebookNegro.png")  
+  a.twitter
+    .icon 
+      float left
+      height 50px   
+      width 50px 
+      background-size 100%
+      background-image url("/images/twitterBlanco.png") 
+      background-repeat no-repeat
+    .icon:hover 
+      cursor pointer
+      background-image url("/images/twitterNegro.png")  
+  a.google
+    .icon 
+      float left
+      height 50px   
+      width 50px 
+      background-size 100%
+      background-image url("/images/googleBlanco.png") 
+      background-repeat no-repeat
+    .icon:hover 
+      cursor pointer
+      background-image url("/images/googleNegro.png")  
+
+#flecha
+  width 100%
+  float left
+  a#inicioPagina
+    margin 0
+    img 
+      margin -10% 2% 0 2%
+
   
 #piePagina
   float left
   width 100%
   background rgba(0, 0, 1, 0.5)
-  margin-top 3% 
   #escudo
     margin 1% 1% 1% 20%
     width 5%
@@ -69,3 +180,46 @@
       color white
       font bold 100% cursive
       text-align center
+
+@media (max-width:800px)
+  #logo
+    width 96%
+    img
+      width 30%
+      margin 3% 25% -3% 25%
+  #titulo
+    width 96%
+    .stroke 
+      font-size 70% !important
+  #menu
+    width 96%
+  #contenido
+    width 96%
+    float left
+    margin 4% 3%
+    min-height 200px !important
+    
+    #home
+      iframe
+        height 200px !important
+
+    #informate
+      iframe
+        height 200px !important
+
+  #novedades
+    width 96%
+  
+  #flecha
+    a#inicioPagina
+      img 
+        margin 1% 
+
+  #escudo
+    width 100% !important
+    img 
+      display none
+  #creditos
+    width 100% !important
+  #redesSociales
+    margin auto !important

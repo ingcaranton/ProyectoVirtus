@@ -1,6 +1,8 @@
 doctype html
 html
   head
+    meta(name="description" content="La importancia de aprender idiomas incluye al lenguaje de señas, ya que tenemos que vincularnos con todos y que mejor forma de hacerlo sino es por los juegos.")
+    meta(name="keywords" content="Juego, gamificacion, señas, lenguaje")
     meta(charset="utf-8")
     title=JuguemosConLasSenas
     link(rel='stylesheet', href='/css/bootstrap.min.css')
@@ -13,26 +15,71 @@ html
         img(src="/images/logo.png")
     a(href="/")
       #titulo
-        h1 JUGUEMOS CON LAS SEÑAS
+        h1 
+          p.arriba
+            span.naranja.stroke J
+            span.rojo.stroke U
+            span.verde.stroke G
+            span.azul.stroke U
+            span.rosado.stroke E
+            span.verdeO.stroke M
+            span.fuccia.stroke O
+            span.naranja.stroke S
+            span &nbsp;
+            span.rojo.stroke C
+            span.verde.stroke O
+            span.azul.stroke N
+          p.abajo
+            span.rosado.stroke L
+            span.verdeO.stroke A
+            span.fuccia.stroke S
+            span &nbsp;
+            span.naranja.stroke S
+            span.rojo.stroke E
+            span.verde.stroke Ñ
+            span.rosado.stroke A
+            span.verdeO.stroke S
     #menu 
       ul
         li 
-          a(href="/quienesSomos") 
-            b Quiénes Somos
+          a(href="/informate") 
+            b Infórmate
         li 
-          a(href="/practiquemos") 
-            b Practiquemos
+          a(href="/aprende") 
+            b Aprende 
         li 
-          a(href="/juguemos") 
-            b Juguemos 
+          a(href="/juega") 
+            b Juega
         li 
           a(href="/contactanos") 
             b Contáctanos 
+        li 
+          a.finalPagina(href="javascript:void(0);") 
+            b Comparte 
+
     #contenido
       block content
+
+    #novedades
+      img(src="/images/novedades.gif")
+      P#fecha JULIO 28 DE 2015
+      p#noticia ESTAMOS EN EL MOMENTO DE ELABORACIÓN DEL PROYECTO. 
+    
+    #redesSociales
+      a.facebook(target="_blank" href="https://www.facebook.com/sharer/sharer.php?u= http://juguemosconlassenas.herokuapp.com/")
+        .icon
+      a.twitter(target="_blank" href="https://twitter.com/?status=Me gusta esta página http://juguemosconlassenas.herokuapp.com/")
+        .icon
+      a.google(target="_blank" href="https://plus.google.com/share?url=http://juguemosconlassenas.herokuapp.com/")
+        .icon
+    #flecha
+      a#inicioPagina(href="javascript:void(0);") 
+        img(src="/images/subir.png")
+
     #piePagina
       #escudo
         img(src="/images/escudo.png")
       #creditos
         p Universidad Distrital Francisco José de Caldas - Ingeniería de Sistemas - Grupo de Investigación VIRTUS
-        p Viviana Cadena Díaz - Arley Carantón Galeano - Andres Camilo Santana / Director: Fernando Martínez Rodríguez
+        p Viviana Cadena Díaz - Arley Carantón Galeano - Andres Camilo Santana 
+        p Director: Fernando Martínez Rodríguez

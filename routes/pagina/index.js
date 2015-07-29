@@ -10,24 +10,24 @@ app.route('/')
   });
 });
 
-app.route('/quienesSomos')
+app.route('/informate')
 .get(function(req, res){
-  res.render('quienesSomos', {
-    title : 'Juguemos con la Señas / Quienes somos'
+  res.render('informate', {
+    title : 'Juguemos con la Señas / Infórmate'
   });
 });
 
-app.route('/practiquemos')
+app.route('/aprende')
 .get(function(req, res){
-  res.render('practiquemos', {
-    title : 'Juguemos con la Señas / Practiquemos'
+  res.render('aprende', {
+    title : 'Juguemos con la Señas / Aprende'
   });
 });
 
-app.route('/juguemos')
+app.route('/juega')
 .get(function(req, res){
-  res.render('juguemos', {
-    title : 'Juguemos con la Señas / Juguemos'
+  res.render('juega', {
+    title : 'Juguemos con la Señas / Juega'
   });
 });
 
