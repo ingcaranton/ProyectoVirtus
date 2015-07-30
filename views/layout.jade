@@ -25,7 +25,7 @@ html
             span.verdeO.stroke M
             span.fuccia.stroke O
             span.naranja.stroke S
-            span &nbsp;
+            span &nbsp;&nbsp;&nbsp;&nbsp;
             span.rojo.stroke C
             span.verde.stroke O
             span.azul.stroke N
@@ -33,7 +33,7 @@ html
             span.rosado.stroke L
             span.verdeO.stroke A
             span.fuccia.stroke S
-            span &nbsp;
+            span &nbsp;&nbsp;&nbsp;&nbsp;
             span.naranja.stroke S
             span.rojo.stroke E
             span.verde.stroke Ñ
@@ -41,19 +41,69 @@ html
             span.verdeO.stroke S
     #menu 
       ul
-        li 
+        li.izquierda.linea
+          a(href="/") 
+            b Home
+        li.derecha.linea 
           a(href="/informate") 
             b Infórmate
-        li 
-          a(href="/aprende") 
+        li.desplegar.izquierda.linea 
+          a#guia(href="javascript:void(0);") 
             b Aprende 
-        li 
+          ul#submenuGuia.submenuGuia(style="display:none") 
+            li.hombre  
+              b.titulo Hombre
+              ul.submenuGuia.submenu
+                li.ancho(type="disc") 
+                  a(href="/aprenda/serHumano")
+                    b Ser Humano
+                li.ancho 
+                  a(href="/aprenda/inteligencia")
+                    b Inteligencia
+                li.ancho 
+                  a(href="/aprenda/caracteristicasSentimientos")
+                    b Características y Sentimientos
+            li.sociedad  
+              b.titulo Sociedad
+              ul.submenuGuia.submenu
+                li.ancho 
+                  a(href="/aprenda/familiaRelaciones")
+                    b Familia y Relaciones
+                li.ancho 
+                  a(href="/aprenda/actividades")
+                    b Actividades
+                li.ancho 
+                  a(href="/aprenda/entornoUrbano")
+                    b Entorno Urbano
+                li.ancho 
+                  a(href="/aprenda/institucionesSociales")
+                    b Instituciones Sociales 
+                li.ancho 
+                  a(href="/aprenda/lenguajeComunicacion")
+                    b Lenguaje y Comunicación
+            li.entornoNatural 
+              b.titulo Entorno Natural
+              ul.submenuGuia.submenu
+                li.ancho 
+                  a(href="/aprenda/naturaleza")
+                    b Naturaleza
+                li.ancho 
+                  a(href="/aprenda/animales")
+                    b Animales
+                li.ancho 
+                  a(href="/aprenda/geografia")
+                    b Geografía
+                li.ancho 
+                  a(href="/aprenda/cualidadesObjetos")
+                    b Cualidades de Objetos
+
+        li.derecha.linea 
           a(href="/juega") 
             b Juega
-        li 
+        li.izquierda.linea 
           a(href="/contactanos") 
             b Contáctanos 
-        li 
+        li.derecha.linea 
           a.finalPagina(href="javascript:void(0);") 
             b Comparte 
 
@@ -80,6 +130,7 @@ html
       #escudo
         img(src="/images/escudo.png")
       #creditos
-        p Universidad Distrital Francisco José de Caldas - Ingeniería de Sistemas - Grupo de Investigación VIRTUS
+        p Universidad Distrital Francisco José de Caldas - Ingeniería de Sistemas 
+        p Grupo de Investigación VIRTUS
         p Viviana Cadena Díaz - Arley Carantón Galeano - Andres Camilo Santana 
         p Director: Fernando Martínez Rodríguez
