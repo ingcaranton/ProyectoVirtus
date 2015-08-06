@@ -18,9 +18,9 @@ $(document).ready(function() {
     $('a#guia').on("click",function(){
       //alert("reconoce");
       if($("ul#submenuGuia").css("display")=="none"){
-        desplegar("inherit","600","32","-26.8");
+        desplegar("inherit","780","54","-26.8");
       }else{
-        desplegar("none","30","1","3");
+        desplegar("none","50","1","3");
       }      
     });  
 });

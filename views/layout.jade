@@ -8,11 +8,16 @@ html
     link(rel='stylesheet', href='/css/bootstrap.min.css')
     link(rel='stylesheet', href='/css/style.css')
     script(type='text/javascript' src='/js/jquery-1.11.2.min.js')
+    script(type='text/javascript' src='/js/bootbox.min.js')
     script(type='text/javascript' src='/js/script.js') 
   body
+    script(type="text/javascript").
+      var message= "#{message}";
+      if(message)
+        bootbox.alert(message); 
     #logo
       a(href="/")
-        img(src="/images/logo.png")
+        img(src="/images/logo.png" title="Tomado de: 'Diccionario de señas INSOR'")
     a(href="/")
       #titulo
         h1 
@@ -111,7 +116,7 @@ html
       block content
 
     #novedades
-      img(src="/images/novedades.gif")
+      img(src="/images/novedades.gif" title="Tomado de: 'http://waece.org/contenido/noticias/?p=616'")
       P#fecha JULIO 28 DE 2015
       p#noticia ESTAMOS EN EL MOMENTO DE ELABORACIÓN DEL PROYECTO. 
     
@@ -124,11 +129,11 @@ html
         .icon
     #flecha
       a#inicioPagina(href="javascript:void(0);") 
-        img(src="/images/subir.png")
+        .icon
 
     #piePagina
       #escudo
-        img(src="/images/escudo.png")
+        img(src="/images/escudo.png" title="Tomado de: 'www.udistrital.edu.co'")
       #creditos
         p Universidad Distrital Francisco José de Caldas - Ingeniería de Sistemas 
         p Grupo de Investigación VIRTUS

@@ -1,24 +1,38 @@
-@font-face
-  font-family "SpeedballNo2NF-Bold"
-  src url("/fonts/SpeedballNo2NF-Bold.ttf") format("truetype")
-@font-face
-  font-family "SaginawBold"
-  src url("/fonts/SaginawBold.ttf") format("truetype")
-@font-face
-  font-family "Trading-Post-Bold"
-  src url("/fonts/Trading-Post-Bold.ttf") format("truetype")
-@font-face
-  font-family "WorstveldSlingBoldOblique"
-  src url("/fonts/WorstveldSlingBoldOblique.ttf") format("truetype")
-@font-face
-  font-family "Easy-Street-EPS-Bold"
-  src url("/fonts/Easy-Street-EPS-Bold.ttf") format("truetype")
-@font-face
-  font-family "zealotli"
-  src url("/fonts/zealotli.ttf") format("truetype")
-@font-face
-  font-family "CalamityJaneNF-Bold"
-  src url("/fonts/CalamityJaneNF-Bold.ttf") format("truetype")
+/*Fuentes*/  
+  @font-face
+    font-family "SpeedballNo2NF-Bold"
+    src url("/fonts/SpeedballNo2NF-Bold.ttf") format("truetype")
+  @font-face
+    font-family "SaginawBold"
+    src url("/fonts/SaginawBold.ttf") format("truetype")
+  @font-face
+    font-family "Trading-Post-Bold"
+    src url("/fonts/Trading-Post-Bold.ttf") format("truetype")
+  @font-face
+    font-family "WorstveldSlingBoldOblique"
+    src url("/fonts/WorstveldSlingBoldOblique.ttf") format("truetype")
+  @font-face
+    font-family "Easy-Street-EPS-Bold"
+    src url("/fonts/Easy-Street-EPS-Bold.ttf") format("truetype")
+  @font-face
+    font-family "zealotli"
+    src url("/fonts/zealotli.ttf") format("truetype")
+  @font-face
+    font-family "CalamityJaneNF-Bold"
+    src url("/fonts/CalamityJaneNF-Bold.ttf") format("truetype")
+    
+/*Mixins*/
+  buton-image(url,urlHover)
+    .icon 
+      float left  
+      width 50px
+      height 50px 
+      background-size 100%
+      background-image url(url) 
+      background-repeat no-repeat
+    .icon:hover 
+      cursor pointer
+      background-image url(urlHover)
 
 body
   overflow-x hidden
@@ -73,7 +87,7 @@ body
     li.linea
       border-bottom 1px solid white
     li
-      height 30px
+      height 50px
       width 80%
       padding 1%
       list-style none
@@ -86,20 +100,21 @@ body
         b 
           text-align center
           font-family SaginawBold
-          font-size 20px
+          font-size 25px
   ul.submenuGuia
     margin-left -16%
     list-style none
     b.titulo 
-      color black
+      color white
+      text-decoration underline
       font-family CalamityJaneNF-Bold
       font-size 25px
     li.hombre
-      height 170px
+      height 200px
     li.sociedad
-      height 230px
+      height 300px
     li.entornoNatural
-      height 140px
+      height 170px
       width 200px !important
     li.ancho
       width 200px !important
@@ -173,6 +188,8 @@ body
         text-align justify
         font-family CalamityJaneNF-Bold 
         font-size 25px
+      span.referencia
+        text-decoration underline
       img 
         width 50%
         margin 2% 25%
@@ -184,46 +201,19 @@ body
   div 
     margin 3% 5%
   a.facebook
-    .icon 
-      float left  
-      width 50px
-      height 50px 
-      background-size 100%
-      background-image url("/images/facebookBlanco.png") 
-      background-repeat no-repeat
-    .icon:hover 
-      cursor pointer
-      background-image url("/images/facebookNegro.png")  
+    buton-image("/images/facebookBlanco.png","/images/facebookNegro.png")
   a.twitter
-    .icon 
-      float left
-      height 50px   
-      width 50px 
-      background-size 100%
-      background-image url("/images/twitterBlanco.png") 
-      background-repeat no-repeat
-    .icon:hover 
-      cursor pointer
-      background-image url("/images/twitterNegro.png")  
+    buton-image("/images/twitterBlanco.png","/images/twitterNegro.png")
   a.google
-    .icon 
-      float left
-      height 50px   
-      width 50px 
-      background-size 100%
-      background-image url("/images/googleBlanco.png") 
-      background-repeat no-repeat
-    .icon:hover 
-      cursor pointer
-      background-image url("/images/googleNegro.png")  
+    buton-image("/images/googleBlanco.png","/images/googleNegro.png")
 
 #flecha
   width 100%
   float left
   a#inicioPagina
-    margin 0
-    img 
-      margin -10% 2% 0 2%
+    .icon
+      margin -5% 0 0 5%
+    buton-image("/images/flechaNegra.png","/images/flechaBlanca.png")
 
   
 #piePagina
@@ -246,6 +236,61 @@ body
       text-align center
       font-family Trading-Post-Bold
 
+#contacto
+  margin 3%
+  img 
+    width 20%
+    margin 2% 40%
+  p 
+    color white
+    text-align center
+    font-family CalamityJaneNF-Bold 
+    font-size 35px
+  #formulario
+    padding-top 5%
+    width 50%
+    margin auto
+    input::-webkit-input-placeholder
+      color #fff
+    input:-moz-placeholder 
+      color #fff
+    input::-moz-placeholder 
+      color #fff
+    input:-ms-input-placeholder 
+      color #fff
+    input
+      width 70%
+      margin 2% 15%
+      height 30px
+      border-left none
+      border-top none
+      border-right none
+      border-bottom 3px solid #f44336
+      text-align center
+      background none
+    textarea
+      width 70%
+      margin 2% 15%
+      border 3px solid #f44336
+      text-align center
+    textarea::-webkit-input-placeholder
+      color #fff
+    textarea:-moz-placeholder 
+      color #fff
+    textarea::-moz-placeholder 
+      color #fff
+    textarea:-ms-input-placeholder 
+      color #fff
+    button
+      width 70%
+      margin 2% 15%
+      border 1.8px solid #f44336
+      text-align center
+      color white
+      background-color #f44336
+      height 25px
+      padding-top 3px
+
 #juega
   background rgba(0, 0, 1, 0.5)
   width 94%
@@ -256,9 +301,21 @@ body
   
 #atras
   width 6%
-  margin 1% 47%
-  img 
-    width 100%
+  margin 1% 47%  
+  .icon
+    margin-top 3%
+    margin-bottom 20%
+  buton-image("/images/homeNegro.png","/images/homeBlanco.png")
+
+#serHumano
+  .enlaces
+    width 90%
+    margin 5%
+    a 
+      width 25%
+      img 
+        width 25%
+        padding 2% 5%
 
 @media (max-width:800px)
   #logo
@@ -294,8 +351,8 @@ body
   
   #flecha
     a#inicioPagina
-      img 
-        margin 1% 
+      .icon
+        float right
 
   #escudo
     width 100% !important

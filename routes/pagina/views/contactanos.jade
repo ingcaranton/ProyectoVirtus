@@ -1,3 +1,15 @@
 extends ../../../views/layout
 block content
   h1 Contáctanos
+  #contacto
+    img(src="/images/correo.png")
+    p Déjanos tus datos y nosotros te contactaremos
+    #formulario
+      form(name="formContacto" method="POST" action="/correo")
+        input(type="text" name="nombre" placeholder="NOMBRE" required)
+        input(type="text" name="apellido" placeholder="APELLIDO" required)           
+        input(type="text" name="telefono" placeholder="TELÉFONO")
+        input(type="email" name="email" placeholder="CORREO ELECTRONICO" required)
+        textarea(rows="5" name="comentario" placeholder="COMENTARIO" required)
+        button.btn(type="submit")
+          b ENVIAR 
