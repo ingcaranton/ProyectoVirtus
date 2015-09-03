@@ -3,6 +3,13 @@ var app = module.exports = express();
 
 app.set('views',__dirname + '/views');
 
+app.route('/alfabeto')
+.get(function(req, res){
+  res.render('alfabeto', {
+    title : 'Juguemos con la Señas / Alfabeto'
+  });
+});
+
 app.route('/serHumano')
 .get(function(req, res){
   res.render('serHumano', {
@@ -59,30 +66,9 @@ app.route('/lenguajeComunicacion')
   });
 });
 
-app.route('/naturaleza')
+app.route('/entornoNatural')
 .get(function(req, res){
-  res.render('naturaleza', {
-    title : 'Juguemos con la Señas / Naturaleza'
-  });
-});
-
-app.route('/animales')
-.get(function(req, res){
-  res.render('animales', {
-    title : 'Juguemos con la Señas / Animales'
-  });
-});
-
-app.route('/geografia')
-.get(function(req, res){
-  res.render('geografia', {
-    title : 'Juguemos con la Señas / Geografía'
-  });
-});
-
-app.route('/cualidadesObjetos')
-.get(function(req, res){
-  res.render('cualidadesObjetos', {
-    title : 'Juguemos con la Señas / Cualidades de Objetos'
+  res.render('entornoNatural', {
+    title : 'Juguemos con la Señas / Entorno Natural'
   });
 });

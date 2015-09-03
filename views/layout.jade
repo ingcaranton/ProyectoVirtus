@@ -56,6 +56,9 @@ html
           a#guia(href="javascript:void(0);") 
             b Aprende 
           ul#submenuGuia.submenuGuia(style="display:none") 
+            li.alfabeto
+              a.principal(href="/aprenda/alfabeto")
+                b Alfabeto
             li.hombre  
               b.titulo Hombre
               ul.submenuGuia.submenu
@@ -87,20 +90,8 @@ html
                   a(href="/aprenda/lenguajeComunicacion")
                     b Lenguaje y Comunicación
             li.entornoNatural 
-              b.titulo Entorno Natural
-              ul.submenuGuia.submenu
-                li.ancho 
-                  a(href="/aprenda/naturaleza")
-                    b Naturaleza
-                li.ancho 
-                  a(href="/aprenda/animales")
-                    b Animales
-                li.ancho 
-                  a(href="/aprenda/geografia")
-                    b Geografía
-                li.ancho 
-                  a(href="/aprenda/cualidadesObjetos")
-                    b Cualidades de Objetos
+              a.principal(href="/aprenda/entornoNatural")
+                b Entorno Natural
 
         li.derecha.linea 
           a(href="/juega") 

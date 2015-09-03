@@ -32,7 +32,7 @@
       background-repeat no-repeat
     .icon:hover 
       cursor pointer
-      background-image url(urlHover)
+      background-image url(urlHover)      
 
 body
   overflow-x hidden
@@ -104,6 +104,12 @@ body
   ul.submenuGuia
     margin-left -16%
     list-style none
+    a.principal
+      text-decoration underline
+      color white
+    a.principal:hover 
+      color black
+      text-decoration underline
     b.titulo 
       color white
       text-decoration underline
@@ -307,6 +313,7 @@ body
     margin-bottom 20%
   buton-image("/images/homeNegro.png","/images/homeBlanco.png")
 
+//aprende
 #serHumano
   .enlaces
     width 90%
@@ -316,6 +323,12 @@ body
       img 
         width 25%
         padding 2% 5%
+
+#alfabeto
+  width 90%
+  margin 2% 6%
+  img
+    padding 2%
 
 @media (max-width:800px)
   #logo
@@ -365,3 +378,7 @@ body
   #atras
     width 10%
     margin 1% 0 !important
+  
+  #alfabeto
+    img#lista
+      width 100%

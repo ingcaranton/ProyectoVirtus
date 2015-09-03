@@ -18,11 +18,22 @@ $(document).ready(function() {
     $('a#guia').on("click",function(){
       //alert("reconoce");
       if($("ul#submenuGuia").css("display")=="none"){
-        desplegar("inherit","780","54","-26.8");
+        desplegar("inherit","650","45","-26.8");
       }else{
         desplegar("none","50","1","3");
       }      
     });  
+  //cambio de imagen enlaces
+    if(window.location.pathname=="/aprenda/serHumano"){
+      cambioImagenHover("serHumano");
+      cambioImagenHover("cuerpoHumano");
+      cambioImagenHover("fisiologia");
+      cambioImagenHover("frutasVerduras");
+      cambioImagenHover("comidasBebidas");
+      cambioImagenHover("vestuario");
+      cambioImagenHover("aseoPersonal");
+      cambioImagenHover("salud");
+    }      
 });
 
 function aleatorio(min, max){ 
@@ -43,4 +54,19 @@ function desplegar(valor, tamaño, top, left){
     height: tamaño+"px"
   }, 600, mostrar(valor,top, left));
   return false;
+}
+
+function token(cadena,separador){
+  return cadena.split(separador,"1");
+}
+
+function cambioImagenHover(id){
+  var enlace = $('#contenido #serHumano a#'+id+' img').attr("src");
+  var res=token(enlace,".");
+  $('#contenido #serHumano a#'+id+' img').mouseenter(function(){
+    $(this).attr("src",res+"Hover.png");
+  });
+  $('#contenido #serHumano a#'+id+' img').mouseleave(function(){
+    $(this).attr("src",enlace);
+  });
 }
