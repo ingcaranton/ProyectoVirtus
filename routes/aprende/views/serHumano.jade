@@ -1,7 +1,7 @@
 extends ../../../views/layout
 block content
   h1 Ser Humano
-  #serHumano
+  #serHumano.cambioImagen
     .enlaces
       a#serHumano(href="javascript:void(0);")
         img(src="/images/aprende/serHumano/serHumano.png" title="Ser Humano")
@@ -19,3 +19,6 @@ block content
         img(src="/images/aprende/serHumano/aseoPersonal.png" title="Aseo Personal")
       a#salud(href="javascript:void(0);")
         img(src="/images/aprende/serHumano/salud.png" title="Salud")
+  .flechaAtras
+    a(href="/aprende" title="Atras")
+      .icon

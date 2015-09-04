@@ -19,6 +19,13 @@ app.route('/informate')
   });
 });
 
+app.route('/aprende')
+.get(function(req, res){
+  res.render('aprende', {
+    title : 'Juguemos con la Señas / Aprende'
+  });
+});
+
 app.route('/juega')
 .get(function(req, res){
   res.render('juega', {

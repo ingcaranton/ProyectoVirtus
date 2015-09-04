@@ -13,9 +13,7 @@ var flash = require('connect-flash');
 
 
 var pagina = require('./routes/pagina');
-var aprenda = require('./routes/aprenda');
-
-
+var aprende = require('./routes/aprende');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,7 +31,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //routes
 app.use('/', pagina);
-app.use('/aprenda', aprenda);
+app.use('/aprende', aprende);
 
 //Sesiones y cokies
 app.use(cookieParser());

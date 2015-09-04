@@ -1,0 +1,16 @@
+extends ../../../views/layout
+block content
+  h1 Entorno Urbano
+  #entornoUrbano.cambioImagen 
+    .enlaces
+      a#ciudad(href="javascript:void(0);")
+        img(src="/images/aprende/entornoUrbano/ciudad.png" title="Ciudad")
+      a#hogarVivienda(href="javascript:void(0);")
+        img(src="/images/aprende/entornoUrbano/hogarVivienda.png" title="Hogar / Vivienda")
+      a#tecnologia(href="javascript:void(0);")
+        img(src="/images/aprende/entornoUrbano/tecnologia.png" title="Tecnología")
+      a#transporte(href="javascript:void(0);")
+        img(src="/images/aprende/entornoUrbano/transporte.png" title="Transporte")
+  .flechaAtras
+    a(href="/aprende" title="Atras")
+      .icon
