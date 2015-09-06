@@ -1,15 +1,15 @@
 extends ../../../views/layout
 block content
   h1 Entorno Urbano
-  #entornoUrbano.cambioImagen 
+  #entornoUrbano.cambioImagen.cuatro 
     .enlaces
-      a#ciudad(href="javascript:void(0);")
+      a#ciudad(href="/entornoUrbano/ciudad")
         img(src="/images/aprende/entornoUrbano/ciudad.png" title="Ciudad")
-      a#hogarVivienda(href="javascript:void(0);")
+      a#hogarVivienda(href="/entornoUrbano/hogarVivienda")
         img(src="/images/aprende/entornoUrbano/hogarVivienda.png" title="Hogar / Vivienda")
-      a#tecnologia(href="javascript:void(0);")
+      a#tecnologia(href="/entornoUrbano/tecnologia")
         img(src="/images/aprende/entornoUrbano/tecnologia.png" title="Tecnología")
-      a#transporte(href="javascript:void(0);")
+      a#transporte(href="/entornoUrbano/transporte")
         img(src="/images/aprende/entornoUrbano/transporte.png" title="Transporte")
   .flechaAtras
     a(href="/aprende" title="Atras")

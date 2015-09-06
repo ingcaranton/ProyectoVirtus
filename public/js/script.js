@@ -1,8 +1,17 @@
 var colores=["E65F5F","E65FC7","BC5FE6","7F5FE6","5F9CE6","5FDBE6","5FE6A3","7AE65F","CBE65F","E65F5F"];
 
 $(document).ready(function() {
-  $("body").css("background","#"+colores[aleatorio(0,10)]);
-
+  $("body").css("background","#"+colores[aleatorio(0,9)]);
+  //Pagina completa para juega.jade
+    if(window.location.pathname=="/juega"){
+      $("#menu").css("display","none");
+      $("#redesSociales").css("display","none");
+      $("#flecha").css("display","none");
+      $("#novedades").css("display","none");
+      $(".home").css("display","inherit");
+      $("#contenido").css("width","90%");
+      $("#contenido").css("margin","3% 5%");
+    }
   //Bajar al final e inicio de la pagina
     var altura = $(document).height();
     $('a.finalPagina').on("click",function(){
@@ -60,6 +69,38 @@ $(document).ready(function() {
       cambioImagenHover("tecnologia");
       cambioImagenHover("transporte");
     } 
+    if(window.location.pathname=="/aprende/institucionesSociales"){
+      cambioImagenHover("administracionGobiernoComercio");
+      cambioImagenHover("entornoEducativo");
+      cambioImagenHover("religion");
+      cambioImagenHover("sancionesSocialesVicios");
+      cambioImagenHover("utilesEscolares");
+    } 
+    if(window.location.pathname=="/aprende/lenguajeComunicacion"){
+      cambioImagenHover("calificar");
+      cambioImagenHover("comunicacionAfines");
+      cambioImagenHover("culturaSorda");
+      cambioImagenHover("formulasCortesia");
+      cambioImagenHover("interrogar");
+    } 
+  //Flecha Atras presentaciones
+    if(direccionAbsoluta(window.location.pathname,1)!="aprende" && window.location.pathname!="/" 
+      && window.location.pathname!="/informate" && window.location.pathname!="/juega"
+      && window.location.pathname!="/contactanos") {
+      var url=direccionAbsoluta(window.location.pathname,1);
+      $('.flechaAtras a').attr("href","/aprende/"+url);
+      var id = direccionAbsoluta(window.location.pathname,2);
+      var contador=$("#contenido .imagen #"+id).attr("numero");
+      var imagen = $("#contenido .imagen #"+id);
+      var contador2 = 1;
+      imagen.on("click",function(){
+        contador2++;
+        if(contador2>contador){
+          contador2=1;
+        }
+        imagen.attr('src', '/images/aprende/serHumano/serHumano/presentacion/'+contador2+'.PNG');
+      });
+    }
 });
 
 function aleatorio(min, max){ 
@@ -67,17 +108,22 @@ function aleatorio(min, max){
   return num; 
 } 
 
-function token(cadena,separador){
-  return cadena.split(separador,"1");
+function token(cadena,separador,posicion){
+  return cadena.split(separador,posicion);
 }
 
 function cambioImagenHover(id){
   var enlace = $('#contenido .cambioImagen a#'+id+' img').attr("src");
-  var res=token(enlace,".");
+  var res=token(enlace,".","1");
   $('#contenido .cambioImagen a#'+id+' img').mouseenter(function(){
     $(this).attr("src",res+"Hover.png");
   });
   $('#contenido .cambioImagen a#'+id+' img').mouseleave(function(){
     $(this).attr("src",enlace);
   });
+}
+
+function direccionAbsoluta(direccion,posicion) {
+  var arreglo = direccion.split("/");
+  return arreglo[posicion];
 }
