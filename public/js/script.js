@@ -92,8 +92,9 @@ $(document).ready(function() {
       var id = direccionAbsoluta(window.location.pathname,2);
       var contador=$("#contenido .imagen #"+id).attr("numero");
       var imagen = $("#contenido .imagen #"+id);
+      var siguiente = $("#contenido .estrella #"+id);
       var contador2 = 1;
-      imagen.on("click",function(){
+      siguiente.on("click",function(){
         contador2++;
         if(contador2>contador){
           contador2=1;

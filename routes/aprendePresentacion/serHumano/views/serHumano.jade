@@ -1,11 +1,15 @@
 extends ../../../../views/layout
+block head
+  script(type='text/javascript' src='/js/magnifier.js')
 block content
   h3.recomendacion Recomendación:
   p.mensaje A continuación encontraras palabras asociadas a su respectiva seña; te recomendamos que intentes decucirla antes de continuar con la siguiente imágen.
-  p.mensaje Para continuar haz click en la imágen.
+  p.mensaje Para continuar haz click en la estrella.
   .imagen
-    img#serHumano(src="/images/aprende/serHumano/serHumano/presentacion/1.PNG" numero="34")
+    img#serHumano.magniflier(src="/images/aprende/serHumano/serHumano/presentacion/1.PNG" numero="34")
       
   .flechaAtras
     a(title="Atras")
       .icon
+  .estrella
+    #serHumano.icon
