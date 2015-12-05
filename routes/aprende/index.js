@@ -10,6 +10,48 @@ app.route('/alfabeto')
   });
 });
 
+app.route('/aseoPersonal')
+.get(function(req, res){
+  res.render('aseoPersonal', {
+    title : 'Juguemos con la Señas / Aseo Personal'
+  });
+});
+
+app.route('/comidasBebidas')
+.get(function(req, res){
+  res.render('comidasBebidas', {
+    title : 'Juguemos con la Señas / Comidas y Bebidas'
+  });
+});
+
+app.route('/cuerpoHumano')
+.get(function(req, res){
+  res.render('cuerpoHumano', {
+    title : 'Juguemos con la Señas / Cuerpo Humano'
+  });
+});
+
+app.route('/fisiologia')
+.get(function(req, res){
+  res.render('fisiologia', {
+    title : 'Juguemos con la Señas / Fisiología'
+  });
+});
+
+app.route('/frutasVerduras')
+.get(function(req, res){
+  res.render('frutasVerduras', {
+    title : 'Juguemos con la Señas / Frutas y Verduras'
+  });
+});
+
+app.route('/salud')
+.get(function(req, res){
+  res.render('salud', {
+    title : 'Juguemos con la Señas / Salud'
+  });
+});
+
 app.route('/serHumano')
 .get(function(req, res){
   res.render('serHumano', {
@@ -17,58 +59,9 @@ app.route('/serHumano')
   });
 });
 
-app.route('/inteligencia')
+app.route('/vestuario')
 .get(function(req, res){
-  res.render('inteligencia', {
-    title : 'Juguemos con la Señas / Inteligencia'
-  });
-});
-
-app.route('/caracteristicasSentimientos')
-.get(function(req, res){
-  res.render('caracteristicasSentimientos', {
-    title : 'Juguemos con la Señas / Características y Sentimientos'
-  });
-});
-
-app.route('/familiaRelaciones')
-.get(function(req, res){
-  res.render('familiaRelaciones', {
-    title : 'Juguemos con la Señas / Familia y Relaciones'
-  });
-});
-
-app.route('/actividades')
-.get(function(req, res){
-  res.render('actividades', {
-    title : 'Juguemos con la Señas / Actividades'
-  });
-});
-
-app.route('/entornoUrbano')
-.get(function(req, res){
-  res.render('entornoUrbano', {
-    title : 'Juguemos con la Señas / Entorno Urbano'
-  });
-});
-
-app.route('/institucionesSociales')
-.get(function(req, res){
-  res.render('institucionesSociales', {
-    title : 'Juguemos con la Señas / Instituciones Sociales'
-  });
-});
-
-app.route('/lenguajeComunicacion')
-.get(function(req, res){
-  res.render('lenguajeComunicacion', {
-    title : 'Juguemos con la Señas / Lenguaje y Comunicación'
-  });
-});
-
-app.route('/entornoNatural')
-.get(function(req, res){
-  res.render('entornoNatural', {
-    title : 'Juguemos con la Señas / Entorno Natural'
+  res.render('vestuario', {
+    title : 'Juguemos con la Señas / Vestuario'
   });
 });

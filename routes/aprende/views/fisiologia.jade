@@ -1,0 +1,15 @@
+extends ../../../views/layout
+block head
+  script(type='text/javascript' src='/js/magnifier.js')
+block content
+  h3.recomendacion Recomendación:
+  p.mensaje A continuación encontraras palabras asociadas a su respectiva seña; te recomendamos que intentes decucirla antes de continuar con la siguiente imágen.
+  p.mensaje Para continuar haz click en la estrella.
+  .imagen
+    img#fisiologia.magniflier(src="/images/aprende/fisiologia/presentacion/Diapositiva1.PNG" numero="11")
+      
+  .flechaAtras
+    a(title="Atras")
+      .icon
+  .estrella
+    #fisiologia.icon

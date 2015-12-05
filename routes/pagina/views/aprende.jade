@@ -1,29 +1,22 @@
 extends ../../../views/layout
 block content
-  h1 Aprende 
-  h3#subAprende ¡Selecciona un tema!
-  img#imgAprende(src="/images/seleccionar.png" title="Tomado de http://www.mercadofitness.com/")
-  #aprende
-    div.espacio 
-      a.white(href="/aprende/alfabeto")
-        b Alfabeto
-      a.black(href="/aprende/serHumano")
-        b Ser Humano
-      a.white(href="/aprende/inteligencia")
-        b Inteligencia
-    div 
-      a.black(href="/aprende/caracteristicasSentimientos")
-        b Características y Sentimientos
-      a.white(href="/aprende/familiaRelaciones")
-        b Familia y Relaciones
-      a.black(href="/aprende/actividades")
-        b Actividades
-      a.white(href="/aprende/entornoNatural")
-        b Entorno Natural
-    div.espacio 
-      a.white(href="/aprende/entornoUrbano")
-        b Entorno Urbano
-      a.black(href="/aprende/institucionesSociales")
-        b Instituciones Sociales 
-      a.white(href="/aprende/lenguajeComunicacion")
-        b Lenguaje y Comunicación      
+  h1 APRENDE
+  #aprende.cambioImagen.ocho
+    a#alfabeto(href="/aprende/alfabeto") ALFABETO
+    .enlaces
+      a#serHumano(href="/aprende/serHumano")
+        img(src="/images/aprende/serHumano.png" title="Ser Humano")
+      a#cuerpoHumano(href="/aprende/cuerpoHumano")
+        img(src="/images/aprende/cuerpoHumano.png" title="Cuerpo Humano")
+      a#fisiologia(href="/aprende/fisiologia")
+        img(src="/images/aprende/fisiologia.png" title="Fisiología")
+      a#frutasVerduras(href="/aprende/frutasVerduras")
+        img(src="/images/aprende/frutasVerduras.png" title="Frutas y Verduras")
+      a#comidasBebidas(href="/aprende/comidasBebidas")
+        img(src="/images/aprende/comidasBebidas.png" title="Comidas, Bebidas y afines")
+      a#vestuario(href="/aprende/vestuario")
+        img(src="/images/aprende/vestuario.png" title="Vestuario")
+      a#aseoPersonal(href="/aprende/aseoPersonal")
+        img(src="/images/aprende/aseoPersonal.png" title="Aseo Personal")
+      a#salud(href="/aprende/salud")
+        img(src="/images/aprende/salud.png" title="Salud")

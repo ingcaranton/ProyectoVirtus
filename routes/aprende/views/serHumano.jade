@@ -1,24 +1,15 @@
 extends ../../../views/layout
+block head
+  script(type='text/javascript' src='/js/magnifier.js')
 block content
-  h1 Ser Humano
-  #serHumano.cambioImagen.ocho
-    .enlaces
-      a#serHumano(href="/serHumano/serHumano")
-        img(src="/images/aprende/serHumano/serHumano.png" title="Ser Humano")
-      a#cuerpoHumano(href="/serHumano/cuerpoHumano")
-        img(src="/images/aprende/serHumano/cuerpoHumano.png" title="Cuerpo Humano")
-      a#fisiologia(href="/serHumano/fisiologia")
-        img(src="/images/aprende/serHumano/fisiologia.png" title="Fisiología")
-      a#frutasVerduras(href="/serHumano/frutasVerduras")
-        img(src="/images/aprende/serHumano/frutasVerduras.png" title="Frutas y Verduras")
-      a#comidasBebidas(href="/serHumano/comidasBebidas")
-        img(src="/images/aprende/serHumano/comidasBebidas.png" title="Comidas, Bebidas y afines")
-      a#vestuario(href="/serHumano/vestuario")
-        img(src="/images/aprende/serHumano/vestuario.png" title="Vestuario")
-      a#aseoPersonal(href="/serHumano/aseoPersonal")
-        img(src="/images/aprende/serHumano/aseoPersonal.png" title="Aseo Personal")
-      a#salud(href="/serHumano/salud")
-        img(src="/images/aprende/serHumano/salud.png" title="Salud")
+  h3.recomendacion Recomendación:
+  p.mensaje A continuación encontraras palabras asociadas a su respectiva seña; te recomendamos que intentes decucirla antes de continuar con la siguiente imágen.
+  p.mensaje Para continuar haz click en la estrella.
+  .imagen
+    img#serHumano.magniflier(src="/images/aprende/serHumano/presentacion/Diapositiva1.PNG" numero="34")
+      
   .flechaAtras
-    a(href="/aprende" title="Atras")
+    a(title="Atras")
       .icon
+  .estrella
+    #serHumano.icon

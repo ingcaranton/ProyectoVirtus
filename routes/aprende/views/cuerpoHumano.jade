@@ -1,0 +1,14 @@
+extends ../../../views/layout
+block head
+  script(type='text/javascript' src='/js/magnifier.js')
+block content
+  h3.recomendacion Recomendación:
+  p.mensaje A continuación encontraras palabras asociadas a su respectiva seña; te recomendamos que intentes decucirla antes de continuar con la siguiente imágen.
+  p.mensaje Para continuar haz click en la estrella.
+  .imagen
+    img#cuerpoHumano.magniflier(src="/images/aprende/cuerpoHumano/presentacion/Diapositiva1.PNG" numero="21")      
+  .flechaAtras
+    a(title="Atras")
+      .icon
+  .estrella
+    #cuerpoHumano.icon

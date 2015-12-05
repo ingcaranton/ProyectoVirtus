@@ -24,7 +24,7 @@ $(document).ready(function() {
       return false;
     });
   //cambio de imagen enlaces
-    if(window.location.pathname=="/aprende/serHumano"){
+    if(window.location.pathname=="/aprende"){
       cambioImagenHover("serHumano");
       cambioImagenHover("cuerpoHumano");
       cambioImagenHover("fisiologia");
@@ -34,61 +34,9 @@ $(document).ready(function() {
       cambioImagenHover("aseoPersonal");
       cambioImagenHover("salud");
     }    
-    if(window.location.pathname=="/aprende/inteligencia"){
-      cambioImagenHover("diasSemana");
-      cambioImagenHover("espacio");
-      cambioImagenHover("expresionesCantidad");
-      cambioImagenHover("expresionesTiempo");
-      cambioImagenHover("inteligencia");
-      cambioImagenHover("meses");
-      cambioImagenHover("numeros");
-    }  
-    if(window.location.pathname=="/aprende/caracteristicasSentimientos"){
-      cambioImagenHover("caracteristicas");
-      cambioImagenHover("sentimientos");
-    }  
-    if(window.location.pathname=="/aprende/familiaRelaciones"){
-      cambioImagenHover("familia");
-      cambioImagenHover("relaciones");
-    } 
-    if(window.location.pathname=="/aprende/actividades"){
-      cambioImagenHover("accionesDistracciones");
-      cambioImagenHover("deportes");
-      cambioImagenHover("musica");
-      cambioImagenHover("profesionesOficios");
-    } 
-    if(window.location.pathname=="/aprende/entornoNatural"){
-      cambioImagenHover("animales");
-      cambioImagenHover("cualidadesObjetos");
-      cambioImagenHover("geografia");
-      cambioImagenHover("naturaleza");
-    } 
-    if(window.location.pathname=="/aprende/entornoUrbano"){
-      cambioImagenHover("ciudad");
-      cambioImagenHover("hogarVivienda");
-      cambioImagenHover("tecnologia");
-      cambioImagenHover("transporte");
-    } 
-    if(window.location.pathname=="/aprende/institucionesSociales"){
-      cambioImagenHover("administracionGobiernoComercio");
-      cambioImagenHover("entornoEducativo");
-      cambioImagenHover("religion");
-      cambioImagenHover("sancionesSocialesVicios");
-      cambioImagenHover("utilesEscolares");
-    } 
-    if(window.location.pathname=="/aprende/lenguajeComunicacion"){
-      cambioImagenHover("calificar");
-      cambioImagenHover("comunicacionAfines");
-      cambioImagenHover("culturaSorda");
-      cambioImagenHover("formulasCortesia");
-      cambioImagenHover("interrogar");
-    } 
   //Flecha Atras presentaciones
-    if(direccionAbsoluta(window.location.pathname,1)!="aprende" && window.location.pathname!="/" 
-      && window.location.pathname!="/informate" && window.location.pathname!="/juega"
-      && window.location.pathname!="/contactanos") {
-      var url=direccionAbsoluta(window.location.pathname,1);
-      $('.flechaAtras a').attr("href","/aprende/"+url);
+    if(direccionAbsoluta(window.location.pathname,1)=="aprende" && direccionAbsoluta(window.location.pathname,2)) {
+      $('.flechaAtras a').attr("href","/aprende");
       var id = direccionAbsoluta(window.location.pathname,2);
       var contador=$("#contenido .imagen #"+id).attr("numero");
       var imagen = $("#contenido .imagen #"+id);
@@ -99,7 +47,7 @@ $(document).ready(function() {
         if(contador2>contador){
           contador2=1;
         }
-        imagen.attr('src', '/images/aprende/serHumano/serHumano/presentacion/'+contador2+'.PNG');
+        imagen.attr('src', '/images/aprende/'+id+'/presentacion/Diapositiva'+contador2+'.PNG');
       });
     }
 });
