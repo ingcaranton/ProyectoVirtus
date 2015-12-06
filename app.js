@@ -14,6 +14,16 @@ var flash = require('connect-flash');
 
 var pagina = require('./routes/pagina');
 var aprende = require('./routes/aprende');
+var actividades = require('./routes/aprendePresentacion/actividades');
+var caracteristicasSentimientos = require('./routes/aprendePresentacion/caracteristicasSentimientos');
+var entornoNatural = require('./routes/aprendePresentacion/entornoNatural');
+var entornoUrbano = require('./routes/aprendePresentacion/entornoUrbano');
+var familiaRelaciones = require('./routes/aprendePresentacion/familiaRelaciones');
+var institucionesSociales = require('./routes/aprendePresentacion/institucionesSociales');
+var inteligencia = require('./routes/aprendePresentacion/inteligencia');
+var lenguajeComunicacion = require('./routes/aprendePresentacion/lenguajeComunicacion');
+var serHumano = require('./routes/aprendePresentacion/serHumano');
+var juego = require('./routes/juego');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -31,7 +41,18 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 //routes
 app.use('/', pagina);
+app.use('/juega', juego);
 app.use('/aprende', aprende);
+app.use('/actividades', actividades);
+app.use('/caracteristicasSentimientos', caracteristicasSentimientos);
+app.use('/entornoNatural', entornoNatural);
+app.use('/entornoUrbano', entornoUrbano);
+app.use('/familiaRelaciones', familiaRelaciones);
+app.use('/institucionesSociales', institucionesSociales);
+app.use('/inteligencia', inteligencia);
+app.use('/lenguajeComunicacion', lenguajeComunicacion);
+app.use('/serHumano', serHumano);
+
 
 //Sesiones y cokies
 app.use(cookieParser());

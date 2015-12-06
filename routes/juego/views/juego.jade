@@ -1,0 +1,7 @@
+extends ../../../views/layout
+block content
+    button(onclick="setFullscreen()") Pantalla completa
+    #juego
+        canvas#canvas(width="300" height="150" style="background:#70E65F; width:1200px; height:600px;") [Canvas not supported by your browser]
+    script(type='text/javascript', src='/js/socket.io-1.1.0.js')
+    script(type='text/javascript' src='/juego/script-juego.js')

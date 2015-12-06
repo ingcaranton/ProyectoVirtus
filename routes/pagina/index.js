@@ -26,12 +26,6 @@ app.route('/aprende')
   });
 });
 
-app.route('/juega')
-.get(function(req, res){
-  res.render('juega', {
-    title : 'Juguemos con la Señas / Juega'
-  });
-});
 
 app.route('/contactanos')
 .get(function(req, res){
