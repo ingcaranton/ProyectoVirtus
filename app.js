@@ -11,7 +11,7 @@ var bodyParser = require('body-parser');
 
 var flash = require('connect-flash');
 
-
+var models = require('./models');
 var pagina = require('./routes/pagina');
 var aprende = require('./routes/aprende');
 var juego = require('./routes/juego');
