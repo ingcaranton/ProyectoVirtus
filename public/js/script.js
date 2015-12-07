@@ -1,18 +1,9 @@
 var colores=["E65F5F","E65FC7","BC5FE6","7F5FE6","5F9CE6","5FDBE6","5FE6A3","7AE65F","CBE65F","E65F5F"];
 
 $(document).ready(function() {
-  $("body").css("background","#"+colores[aleatorio(0,9)]);
-  //Pagina completa para juega.jade
-    if(window.location.pathname=="/juega"){
-      $("#menu").css("display","none");
-      $("#redesSociales").css("display","none");
-      $("#flecha").css("display","none");
-      $("#novedades").css("display","none");
-      $(".botonesJuega").css("display","inherit");
-      $("#contenido").css("width","70%");
-      $("#contenido").css("margin","3% 15%");
-      //$("#contenido").css("background","rgba(226,226,226,1)");
-    }
+  var color="#"+colores[aleatorio(0,9)];
+  $("body").css("background",color);
+  
   //Bajar al final e inicio de la pagina
     var altura = $(document).height();
     $('a.finalPagina').on("click",function(){

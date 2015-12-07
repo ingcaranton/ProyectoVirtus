@@ -18,6 +18,8 @@ function setFullscreen(){
   else {
     elemento.mozRequestFullScreen();
   }            
+  var color = $("body").css("background-color");
+  $("#juego").css("background-color",color);
 }
 
 
