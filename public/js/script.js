@@ -8,9 +8,10 @@ $(document).ready(function() {
       $("#redesSociales").css("display","none");
       $("#flecha").css("display","none");
       $("#novedades").css("display","none");
-      $(".home").css("display","inherit");
-      $("#contenido").css("width","90%");
-      $("#contenido").css("margin","3% 5%");
+      $(".botonesJuega").css("display","inherit");
+      $("#contenido").css("width","70%");
+      $("#contenido").css("margin","3% 15%");
+      //$("#contenido").css("background","rgba(226,226,226,1)");
     }
   //Bajar al final e inicio de la pagina
     var altura = $(document).height();

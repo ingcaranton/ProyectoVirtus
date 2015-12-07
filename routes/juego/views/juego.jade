@@ -1,7 +1,19 @@
 extends ../../../views/layout
+block head
+  link(rel='stylesheet', href='/css/styleJuego.css')
 block content
-    button(onclick="setFullscreen()") Pantalla completa
-    #juego
-        canvas#canvas(width="300" height="150" style="background:#70E65F; width:1200px; height:600px;") [Canvas not supported by your browser]
-    script(type='text/javascript', src='/js/socket.io-1.1.0.js')
-    script(type='text/javascript' src='/juego/script-juego.js')
+  
+  #juego
+    #jugador
+      img(src="/images/jugar.png")
+      label NOMBRE DEL JUGADOR
+      input#nombreJugador(type="text" autofocus)
+      button#botonJugador(type="button" disabled) JUGAR
+    #cargando(style="display:none;")
+      img(src='/images/cargando.GIF')
+      label#mensaje
+    #partida(style="display:none;")
+      span PARTIDA
+  script(type='text/javascript', src='/js/socket.io-1.1.0.js')
+  script(type='text/javascript' src='/js/bootbox.min.js')
+  script(type='text/javascript' src='/juego/script-juego.js')

@@ -86,9 +86,13 @@ html
       a#inicioPagina(href="javascript:void(0);") 
         .icon
 
-    .home(style="display:none")
-      a(href="/")
-        .icon
+    .botonesJuega(style="display:none")
+      .home
+        a(href="/" title="Home")
+          .icon
+      .fullScreen
+        a(href="javascript:void(0);" title="Pantalla Completa" onclick="setFullscreen()")
+          .icon
 
     #piePagina
       #escudo
