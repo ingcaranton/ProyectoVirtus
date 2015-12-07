@@ -1,6 +1,3 @@
-//juego
-
-
 //recibe info del socket
     var socket = io();
     /*

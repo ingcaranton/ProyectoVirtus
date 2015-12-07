@@ -1,6 +1,6 @@
 extends ../../../views/layout
 block head
-  link(rel='stylesheet', href='/css/styleJuego.css')
+  link(rel='stylesheet', href='/juego/styleJuego.css')
 block content
   
   #juego
@@ -15,5 +15,4 @@ block content
     #partida(style="display:none;")
       span PARTIDA
   script(type='text/javascript', src='/js/socket.io-1.1.0.js')
-  script(type='text/javascript' src='/js/bootbox.min.js')
   script(type='text/javascript' src='/juego/script-juego.js')
