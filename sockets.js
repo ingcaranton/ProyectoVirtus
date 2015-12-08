@@ -7,6 +7,7 @@ module.exports = function(io) {
         			newPartida.user1.nombre=jugador;
         			newPartida.user2.nombre="";
                     newPartida=llenarPartida(newPartida);
+                    console.log(newPartida);
         			newPartida.save(function(errSave, partida){
                         socket.join(partida.id);
         			});
@@ -38,14 +39,24 @@ function partidaPregunta(io, id){
     var tiempo=30;
     var si =  setInterval(function(){
         io.to(id).emit("tiempo", tiempo);
-        tiempo-=1;
         if(tiempo==0){
             clearInterval(si);
-        }                       
+        }  
+        tiempo-=1;                     
     }, 1000);  
 }
 function llenarPartida(newPartida){
 newPartida.id=new Date().getTime();
+newPartida.pregunta1.pregunta.imagen="/images/aprende/vestuario/pijama";
+newPartida.pregunta1.respuesta1.numero=1;
+newPartida.pregunta1.respuesta1.enunciado="Saco";
+newPartida.pregunta1.respuesta2.numero=2;
+newPartida.pregunta1.respuesta2.enunciado="Pijama";
+newPartida.pregunta1.respuesta3.numero=3;
+newPartida.pregunta1.respuesta3.enunciado="Dormir";
+newPartida.pregunta1.respuesta4.numero=4;
+newPartida.pregunta1.respuesta4.enunciado="Limpiar";
+newPartida.repuestaCorrecta1=2;
 return newPartida
 }
 
