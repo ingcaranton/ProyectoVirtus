@@ -35,15 +35,18 @@ module.exports = function(io) {
                     if(partida.user1.nombre==jugador){
                         puntos=partida.user1.puntos+20;
                         db.partida.findOneAndUpdate({"id":id},{$set:{"user1.puntos":puntos}}, function(error, partida){
+                            socket.emit("resultado", "correcto", partida.respuestaCorrecta1, partida.user1, partida.user2);
                         });
                     }else{
                         puntos=partida.user2.puntos+20;
                         db.partida.findOneAndUpdate({"id":id},{$set:{"user2.puntos":puntos}}, function(error, partida){
+                            socket.emit("resultado", "correcto", partida.respuestaCorrecta1, partida.user1, partida.user2);
                         });
                     }
-                    io.to(partida.id).emit("resultado", "correcto", partida.repuestaCorrecta1, partida.user1, partida.user2);
                 }else{
-                    io.to(partida.id).emit("resultado", "incorrecto",partida.repuestaCorrecta1, partida.user1, partida.user2);
+                        db.partida.findOne({"id":id}, function(error, partida){
+                            socket.emit("resultado", "incorrecto", partida.respuestaCorrecta1, partida.user1, partida.user2);
+                        });  
                 }
 
             });
