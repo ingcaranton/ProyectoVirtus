@@ -57,7 +57,7 @@ $("#botonJugador").on("click",function(){
 });
 
 //recibir partida - pregunta 1
-var idPartida="", numPregunta=1;
+var idPartida="", numPregunta=1, numPreguntaSiguiente=2;
 var src="";
 var rta1="", rta2="", rta3="", rta4="";
 
@@ -71,16 +71,19 @@ socket.on('tiempo',function(tiempo){
 
 socket.on('resultado', function(resultado, rtaCorrecta, jugador1, jugador2){
     resultadoPregunta(resultado, rtaCorrecta, jugador1, jugador2);
+    sigPregunta(numPreguntaSiguiente);
 });
 
 //pregunta 2
-sigPregunta(2);
+
 socket.on('pregunta2', function(pregunta2, jugador1, jugador2, id){
   generarPregunta(pregunta2, jugador1, jugador2, id);
 });
 
 //pregunta3
-//sigPregunta(3);
+socket.on('pregunta3', function(pregunta3, jugador1, jugador2, id){
+  generarPregunta(pregunta3, jugador1, jugador2, id);
+});
 
 //funciones
 
@@ -168,12 +171,12 @@ function resultadoPregunta(resultado, rtaCorrecta, jugador1, jugador2){
 
 function sigPregunta(numPregunta){
   $("#resultado #boton button").on("click",function(){
-
     $("#resultado").css("display","none");
     $("#resultado #respuestas div span").css("border","2px solid black");
     $("#cargando").css("display","inherit");
     $("#mensaje").text("ESPERANDO PREGUNTA");
     $(this).attr("disabled","true");
     socket.emit('listoPregunta', idPartida, numPregunta);
+    numPreguntaSiguiente+=1;
   });
 }
