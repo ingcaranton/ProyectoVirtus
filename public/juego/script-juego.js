@@ -45,6 +45,8 @@ $("#botonJugador").on("click",function(){
 
 //recibir partida
 var idPartida="";
+var src="";
+var rta1="", rta2="", rta3="", rta4="";
 socket.on('pregunta1', function(pregunta1,jugador1,jugador2,id){
   idPartida=id;
   $("#cargando").css("display","none");
@@ -61,10 +63,15 @@ socket.on('pregunta1', function(pregunta1,jugador1,jugador2,id){
     $("#puntaje2").text(jugador1.puntos);
   }
   $("#imagenPregunta").attr("src",pregunta1.pregunta.imagen);
+  src=pregunta1.pregunta.imagen;
   $("#opcion1 span").text(pregunta1.respuesta1.enunciado);
+  rta1=pregunta1.respuesta1.enunciado;
   $("#opcion2 span").text(pregunta1.respuesta2.enunciado);
+  rta2=pregunta1.respuesta2.enunciado;
   $("#opcion3 span").text(pregunta1.respuesta3.enunciado);
+  rta3=pregunta1.respuesta3.enunciado;
   $("#opcion4 span").text(pregunta1.respuesta4.enunciado);
+  rta4=pregunta1.respuesta4.enunciado;
 });
 
 socket.on('tiempo',function(tiempo){  
@@ -74,6 +81,38 @@ socket.on('tiempo',function(tiempo){
     socket.emit('respuesta1', respuesta(), jugador, idPartida);
     console.log(respuesta()+" "+jugador+" "+idPartida);
   }
+});
+
+socket.on('resultado', function(resultado, rtaCorrecta, jugador1, jugador2){
+  alert(resultado+" "+rtaCorrecta+" "+jugador1.nombre+" "+jugador1.puntos);
+  $("#partida").css("display","none");
+  $("#resultado").css("display","inherit");
+  if(resultado==="correcto"){
+    $("#resultado #mensaje span").text("¡RESPUESTA CORRECTA!");
+    $("img#reaccion").attr("src","/images/bien.gif");
+
+  }else{
+    $("#resultado #mensaje span").text("¡RESPUESTA INCORRECTA!");
+    $("img#reaccion").attr("src","/images/mal.gif");
+  }
+  $("#izquierda img").attr("src",src);
+  $("#rta1 span").text(rta1);
+  $("#rta2 span").text(rta2);
+  $("#rta3 span").text(rta3);
+  $("#rta4 span").text(rta4);
+  if(rtaCorrecta===1){
+    $("#rta1 label span").css("border", "2px solid white !important");
+  }else if(rtaCorrecta===2){
+    $("#rta2 label span").css("border", "2px solid white !important");
+  }else if(rtaCorrecta===3){
+    $("#rta3 label span").css("border", "2px solid white !important");
+  }else{
+    $("#rta4 label span").css("border", "2px solid white !important");
+  }
+  $("#derecha #jugador1 span#nombre1").text(jugador1.nombre);
+  $("#derecha #jugador1 span#punaje1").text(jugador1.puntos);
+  $("#derecha #jugador2 span#nombre2").text(jugador2.nombre);
+  $("#derecha #jugador2 span#punaje2").text(jugador2.puntos);
 });
 
 //grupo de respuestas
