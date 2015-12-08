@@ -71,7 +71,6 @@ socket.on('tiempo',function(tiempo){
 
 socket.on('resultado', function(resultado, rtaCorrecta, jugador1, jugador2){
     resultadoPregunta(resultado, rtaCorrecta, jugador1, jugador2);
-    sigPregunta(numPreguntaSiguiente);
 });
 
 //pregunta 2
@@ -167,16 +166,18 @@ function resultadoPregunta(resultado, rtaCorrecta, jugador1, jugador2){
   $("#derecha #jugador1 span#puntaje1").text(jugador1.puntos);
   $("#derecha #jugador2 span#nombre2").text(jugador2.nombre);
   $("#derecha #jugador2 span#puntaje2").text(jugador2.puntos);
+
+  $("#resultado #boton button").attr("numero", numPregunta);
 }
 
-function sigPregunta(numPregunta){
-  $("#resultado #boton button").on("click",function(){
-    $("#resultado").css("display","none");
-    $("#resultado #respuestas div span").css("border","2px solid black");
-    $("#cargando").css("display","inherit");
-    $("#mensaje").text("ESPERANDO PREGUNTA");
-    $(this).attr("disabled","true");
-    socket.emit('listoPregunta', idPartida, numPregunta);
-    numPreguntaSiguiente+=1;
-  });
-}
+
+$("#resultado #boton button").on("click",function(){
+  var numero = $(this).attr("numero");
+  $("#resultado").css("display","none");
+  $("#resultado #respuestas div span").css("border","2px solid black");
+  $("#cargando").css("display","inherit");
+  $("#mensaje").text("ESPERANDO PREGUNTA");
+  $(this).attr("disabled","true");
+  socket.emit('listoPregunta', idPartida, numero);
+  alert(numero);
+});
