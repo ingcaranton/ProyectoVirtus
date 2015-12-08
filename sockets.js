@@ -94,7 +94,6 @@ module.exports = function(io) {
         }); 
 
         socket.on('listoPregunta', function(id, numPregunta){
-            console.log("entro");
                 db.partida.findOne({"id":id},function(error, partida){
                     if(numPregunta==2){
                         if(partida.pregunta2.listo==0){
@@ -123,6 +122,7 @@ module.exports = function(io) {
 function partidaPregunta(io, id){
     var tiempo=15;
     var si =  setInterval(function(){
+        console.log(tiempo);
         io.to(id).emit("tiempo", tiempo);
         if(tiempo==0){
             clearInterval(si);
