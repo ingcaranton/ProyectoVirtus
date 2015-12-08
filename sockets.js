@@ -25,24 +25,54 @@ module.exports = function(io) {
         		}
         	});
         }); 
-        socket.on('respuesta1', function(respuesta, jugador, id){
+        socket.on('respuesta', function(respuesta, jugador, id, numPregunta){
             db.partida.findOne({"id":id},function(error,partida){
                 var puntos;
                 if(respuesta==partida.respuestaCorrecta1){
                     if(partida.user1.nombre==jugador){
                         puntos=partida.user1.puntos+20;
                         db.partida.findOneAndUpdate({"id":id},{$set:{"user1.puntos":puntos}}, function(error, partida){
-                            socket.emit("resultado", "correcto", partida.respuestaCorrecta1, partida.user1, partida.user2);
+                            var respuestaCorrecta=0;
+                            if(numPregunta==1){
+                                respuestaCorrecta=partida.respuestaCorrecta1;
+                            }
+                            if(numPregunta==2){
+                                respuestaCorrecta=partida.respuestaCorrecta2;
+                            }
+                            if(numPregunta==3){
+                                respuestaCorrecta=partida.respuestaCorrecta3
+                            }
+                            socket.emit("resultado", "correcto", respuestaCorrecta, partida.user1, partida.user2);
                         });
                     }else{
                         puntos=partida.user2.puntos+20;
                         db.partida.findOneAndUpdate({"id":id},{$set:{"user2.puntos":puntos}}, function(error, partida){
-                            socket.emit("resultado", "correcto", partida.respuestaCorrecta1, partida.user1, partida.user2);
+                            var respuestaCorrecta=0;
+                            if(numPregunta==1){
+                                respuestaCorrecta=partida.respuestaCorrecta1;
+                            }
+                            if(numPregunta==2){
+                                respuestaCorrecta=partida.respuestaCorrecta2;
+                            }
+                            if(numPregunta==3){
+                                respuestaCorrecta=partida.respuestaCorrecta3
+                            }
+                            socket.emit("resultado", "correcto", respuestaCorrecta, partida.user1, partida.user2);
                         });
                     }
                 }else{
                         db.partida.findOne({"id":id}, function(error, partida){
-                            socket.emit("resultado", "incorrecto", partida.respuestaCorrecta1, partida.user1, partida.user2);
+                            var respuestaCorrecta=0;
+                            if(numPregunta==1){
+                                respuestaCorrecta=partida.respuestaCorrecta1;
+                            }
+                            if(numPregunta==2){
+                                respuestaCorrecta=partida.respuestaCorrecta2;
+                            }
+                            if(numPregunta==3){
+                                respuestaCorrecta=partida.respuestaCorrecta3
+                            }
+                            socket.emit("resultado", "incorrecto", respuestaCorrecta, partida.user1, partida.user2);
                         });  
                 }
 
@@ -93,27 +123,27 @@ function llenarPartida1(newPartida){
     newPartida.pregunta1.respuesta4.enunciado="Limpiar";
     newPartida.respuestaCorrecta1=2;
 
-    newPartida.pregunta1.pregunta.imagen="/images/aprende/salud/sano.png";
-    newPartida.pregunta1.respuesta1.numero=1;
-    newPartida.pregunta1.respuesta1.enunciado="Enfermo";
-    newPartida.pregunta1.respuesta2.numero=2;
-    newPartida.pregunta1.respuesta2.enunciado="Infarto";
-    newPartida.pregunta1.respuesta3.numero=3;
-    newPartida.pregunta1.respuesta3.enunciado="Mareado";
-    newPartida.pregunta1.respuesta4.numero=4;
-    newPartida.pregunta1.respuesta4.enunciado="Sano";
-    newPartida.respuestaCorrecta1=4;
+    newPartida.pregunta2.pregunta.imagen="/images/aprende/salud/sano.png";
+    newPartida.pregunta2.respuesta1.numero=1;
+    newPartida.pregunta2.respuesta1.enunciado="Enfermo";
+    newPartida.pregunta2.respuesta2.numero=2;
+    newPartida.pregunta2.respuesta2.enunciado="Infarto";
+    newPartida.pregunta2.respuesta3.numero=3;
+    newPartida.pregunta2.respuesta3.enunciado="Mareado";
+    newPartida.pregunta2.respuesta4.numero=4;
+    newPartida.pregunta2.respuesta4.enunciado="Sano";
+    newPartida.respuestaCorrecta2=4;
 
-    newPartida.pregunta1.pregunta.imagen="/images/aprende/comidasBebidas/ensalada.png";
-    newPartida.pregunta1.respuesta1.numero=1;
-    newPartida.pregunta1.respuesta1.enunciado="Ensalada";
-    newPartida.pregunta1.respuesta2.numero=2;
-    newPartida.pregunta1.respuesta2.enunciado="Chocolate";
-    newPartida.pregunta1.respuesta3.numero=3;
-    newPartida.pregunta1.respuesta3.enunciado="Ponque";
-    newPartida.pregunta1.respuesta4.numero=4;
-    newPartida.pregunta1.respuesta4.enunciado="Pollo";
-    newPartida.respuestaCorrecta1=1;
+    newPartida.pregunta3.pregunta.imagen="/images/aprende/comidasBebidas/ensalada.png";
+    newPartida.pregunta3.respuesta1.numero=1;
+    newPartida.pregunta3.respuesta1.enunciado="Ensalada";
+    newPartida.pregunta3.respuesta2.numero=2;
+    newPartida.pregunta3.respuesta2.enunciado="Chocolate";
+    newPartida.pregunta3.respuesta3.numero=3;
+    newPartida.pregunta3.respuesta3.enunciado="Ponque";
+    newPartida.pregunta3.respuesta4.numero=4;
+    newPartida.pregunta3.respuesta4.enunciado="Pollo";
+    newPartida.respuestaCorrecta3=1;
     return newPartida
 }
 
