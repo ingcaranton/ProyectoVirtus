@@ -63,7 +63,7 @@ function partidaPregunta(io, id){
 }
 function llenarPartida(newPartida){
 newPartida.id=new Date().getTime();
-newPartida.pregunta1.pregunta.imagen="/images/aprende/vestuario/pijama";
+newPartida.pregunta1.pregunta.imagen="/images/aprende/vestuario/pijama.png";
 newPartida.pregunta1.respuesta1.numero=1;
 newPartida.pregunta1.respuesta1.enunciado="Saco";
 newPartida.pregunta1.respuesta2.numero=2;
