@@ -4,6 +4,9 @@ module.exports = function(io) {
         	db.partida.findOne({"user2.nombre":""},function(error,partida){
         		if(partida==null){
         			var newPartida = new db.partida();
+                    newPartida.user1.nombre=jugador;
+                    newPartida.user1.puntos=0;
+                    newPartida.user2.nombre="";
                     newPartida=llenarPartida1(newPartida);
         			newPartida.save(function(errSave, partida){
                         socket.join(partida.id);
@@ -108,9 +111,6 @@ function partidaPregunta(io, id){
     }, 1000);  
 }
 function llenarPartida1(newPartida){
-    newPartida.user1.nombre=jugador;
-    newPartida.user1.puntos=0;
-    newPartida.user2.nombre="";
     newPartida.id=new Date().getTime();
     newPartida.pregunta1.pregunta.imagen="/images/aprende/vestuario/pijama.png";
     newPartida.pregunta1.respuesta1.numero=1;

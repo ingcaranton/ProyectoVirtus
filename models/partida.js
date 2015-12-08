@@ -37,6 +37,58 @@ module.exports = function(mongoose){
 				imagen: String
 			}
 		},
+		pregunta2 : {
+			pregunta: {
+				enunciado: String,
+				imagen: String
+			},
+			respuesta1: {
+				numero: Number,
+				enunciado: String,
+				imagen: String
+			},
+			respuesta2: {
+				numero: Number,
+				enunciado: String,
+				imagen: String
+			},
+			respuesta3: {
+				numero: Number,
+				enunciado: String,
+				imagen: String
+			},
+			respuesta4: {
+				numero: Number,
+				enunciado: String,
+				imagen: String
+			}
+		},
+		pregunta3 : {
+			pregunta: {
+				enunciado: String,
+				imagen: String
+			},
+			respuesta1: {
+				numero: Number,
+				enunciado: String,
+				imagen: String
+			},
+			respuesta2: {
+				numero: Number,
+				enunciado: String,
+				imagen: String
+			},
+			respuesta3: {
+				numero: Number,
+				enunciado: String,
+				imagen: String
+			},
+			respuesta4: {
+				numero: Number,
+				enunciado: String,
+				imagen: String
+			}
+		},
 		tiempo : Number,
 		respuestaCorrecta1: Number
 	});
