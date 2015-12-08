@@ -18,7 +18,7 @@ module.exports = function(io) {
         				   	db.partida.findOne({"user2.nombre":jugador},function(error,partida2){
                                 socket.join(partida2.id, function(){
         				   		//pregunta1
-        						  io.to(partida2.id).emit('partida', partida2.pregunta1);
+        						  io.to(partida2.id).emit('pregunta1', partida2.pregunta1, partida2.user1, partida2.user2);
         						  console.log(partida2);
                                   partidaPregunta(io, partida2.id);
         					});
@@ -26,7 +26,12 @@ module.exports = function(io) {
         			});
         		}
         	});
-        });  
+        }); 
+        socket.on('respuesta1', function(respuesta, jugador){
+            db.partida.findOne({$or[{"user2.nombre":jugador},{"user1.nombre":jugador}]},function(error,partida){
+                console.log(partida);
+            });
+        }); 
     });
 };
 
@@ -36,7 +41,9 @@ function partidaPregunta(io, id){
         io.to(id).emit("tiempo", tiempo);
         console.log(tiempo);
         tiempo-=1;
-                            
+        if(tiempo==0){
+            clearInterval(si);
+        }                       
     }, 1000);  
 }
 function llenarPartida(newPartida){

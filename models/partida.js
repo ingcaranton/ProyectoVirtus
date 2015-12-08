@@ -16,9 +16,6 @@ module.exports = function(mongoose){
 				enunciado: String,
 				imagen: String
 			},
-			respuestaCorrecta: {
-				numero: Number
-			},
 			respuesta1: {
 				numero: Number,
 				enunciado: String,
@@ -40,7 +37,8 @@ module.exports = function(mongoose){
 				imagen: String
 			}
 		},
-		tiempo : Number
+		tiempo : Number,
+		respuestaCorrecta1: Number
 	});
 	return mongoose.model('partida', partidaSchema);
 }
