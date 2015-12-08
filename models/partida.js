@@ -12,6 +12,7 @@ module.exports = function(mongoose){
 		},
 
 		pregunta1 : {
+			listo: Number,
 			pregunta: {
 				enunciado: String,
 				imagen: String
@@ -38,6 +39,7 @@ module.exports = function(mongoose){
 			}
 		},
 		pregunta2 : {
+			listo: Number,
 			pregunta: {
 				enunciado: String,
 				imagen: String
@@ -64,6 +66,7 @@ module.exports = function(mongoose){
 			}
 		},
 		pregunta3 : {
+			listo: Number,
 			pregunta: {
 				enunciado: String,
 				imagen: String
