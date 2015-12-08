@@ -4,10 +4,7 @@ module.exports = function(io) {
         	db.partida.findOne({"user2.nombre":""},function(error,partida){
         		if(partida==null){
         			var newPartida = new db.partida();
-        			newPartida.user1.nombre=jugador;
-                    newPartida.user1.puntos=0;
-        			newPartida.user2.nombre="";
-                    newPartida=llenarPartida(newPartida);
+                    newPartida=llenarPartida1(newPartida);
         			newPartida.save(function(errSave, partida){
                         socket.join(partida.id);
         			});
@@ -51,6 +48,22 @@ module.exports = function(io) {
 
             });
         }); 
+
+        socket.on('listoPregunta', function(id, numPregunta){
+            socket.join(id, function(){
+                db.partida.findOne({"id":id},function(error, partida){
+                    if(numPregunta==2){
+                        io.to(id).emit('pregunta2', partida.pregunta2, partida.user1, partida.user2, partida.id);
+                        partidaPregunta(io, partida2.id);
+                    }
+                    if(numPregunta==3){
+                        io.to(id).emit('pregunta3', partida.pregunta3, partida.user1, partida.user2, partida.id);
+                        partidaPregunta(io, partida2.id);
+                    }
+                });
+            });
+        }); 
+    
     });
 };
 
@@ -64,18 +77,43 @@ function partidaPregunta(io, id){
         tiempo-=1;                     
     }, 1000);  
 }
-function llenarPartida(newPartida){
-newPartida.id=new Date().getTime();
-newPartida.pregunta1.pregunta.imagen="/images/aprende/vestuario/pijama.png";
-newPartida.pregunta1.respuesta1.numero=1;
-newPartida.pregunta1.respuesta1.enunciado="Saco";
-newPartida.pregunta1.respuesta2.numero=2;
-newPartida.pregunta1.respuesta2.enunciado="Pijama";
-newPartida.pregunta1.respuesta3.numero=3;
-newPartida.pregunta1.respuesta3.enunciado="Dormir";
-newPartida.pregunta1.respuesta4.numero=4;
-newPartida.pregunta1.respuesta4.enunciado="Limpiar";
-newPartida.respuestaCorrecta1=2;
-return newPartida
+function llenarPartida1(newPartida){
+    newPartida.user1.nombre=jugador;
+    newPartida.user1.puntos=0;
+    newPartida.user2.nombre="";
+    newPartida.id=new Date().getTime();
+    newPartida.pregunta1.pregunta.imagen="/images/aprende/vestuario/pijama.png";
+    newPartida.pregunta1.respuesta1.numero=1;
+    newPartida.pregunta1.respuesta1.enunciado="Saco";
+    newPartida.pregunta1.respuesta2.numero=2;
+    newPartida.pregunta1.respuesta2.enunciado="Pijama";
+    newPartida.pregunta1.respuesta3.numero=3;
+    newPartida.pregunta1.respuesta3.enunciado="Dormir";
+    newPartida.pregunta1.respuesta4.numero=4;
+    newPartida.pregunta1.respuesta4.enunciado="Limpiar";
+    newPartida.respuestaCorrecta1=2;
+
+    newPartida.pregunta1.pregunta.imagen="/images/aprende/salud/sano.png";
+    newPartida.pregunta1.respuesta1.numero=1;
+    newPartida.pregunta1.respuesta1.enunciado="Enfermo";
+    newPartida.pregunta1.respuesta2.numero=2;
+    newPartida.pregunta1.respuesta2.enunciado="Infarto";
+    newPartida.pregunta1.respuesta3.numero=3;
+    newPartida.pregunta1.respuesta3.enunciado="Mareado";
+    newPartida.pregunta1.respuesta4.numero=4;
+    newPartida.pregunta1.respuesta4.enunciado="Sano";
+    newPartida.respuestaCorrecta1=4;
+
+    newPartida.pregunta1.pregunta.imagen="/images/aprende/comidasBebidas/ensalada.png";
+    newPartida.pregunta1.respuesta1.numero=1;
+    newPartida.pregunta1.respuesta1.enunciado="Ensalada";
+    newPartida.pregunta1.respuesta2.numero=2;
+    newPartida.pregunta1.respuesta2.enunciado="Chocolate";
+    newPartida.pregunta1.respuesta3.numero=3;
+    newPartida.pregunta1.respuesta3.enunciado="Ponque";
+    newPartida.pregunta1.respuesta4.numero=4;
+    newPartida.pregunta1.respuesta4.enunciado="Pollo";
+    newPartida.respuestaCorrecta1=1;
+    return newPartida
 }
 
