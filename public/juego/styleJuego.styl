@@ -64,3 +64,109 @@
       width 8%
       margin 10% 46%
       float left
+
+//opciones respuesta
+  radio-buttons(color)
+      width 100%
+      height 100%
+      float left
+      :hover 
+        cursor pointer
+      input 
+        display none
+
+      span 
+        width 100% !important
+        height 100%
+        display block
+        background-color transparent
+        border 2px solid color 
+        border-radius 50px
+        padding 2%
+        text-align center
+        color white           
+
+      span:hover
+        border 2px solid blue
+
+      input:checked + span 
+        border 2px solid white 
+        color black
+  #puntajes
+    width 100%
+    float left
+    div
+      width 44%
+      margin 2% 3%
+      span
+        color white
+        font-size 30px
+        margin 1% 2%
+      img 
+        margin-top -2%
+        width 8%
+    #jugador1
+      float left
+    #jugador2
+      float right
+      text-align right
+  #imagenes
+    float left
+    width 80%
+    margin 2% 10%
+    background-color white
+    border-radius 50px
+    border-top 4px solid red
+    border-left 4px solid blue
+    border-right 4px solid green
+    border-bottom 4px solid orange
+    div 
+      float left
+    #gif
+      width 25%
+      padding 5% 0 3% 10%
+      img 
+        width 100%
+        margin-top 8%
+    #imagen 
+      width 20%
+      margin 2% 15%
+      border 4px dashed black
+      img
+        width 100%
+        height 100%
+    #tiempo
+      width 80px
+      height 80px
+      border-radius 50%
+      background-image url('/images/tiempo.GIF')
+      background-repeat no-repeat 
+      background-position center
+      background-size 100%
+      margin-top 8%
+      padding 2.5% 0
+      float left
+      text-align center
+      span 
+        color black
+        width 100%
+        font-size 30px      
+    
+  #pregunta
+    width 100%
+    float left
+    text-align center
+    span
+      width 100%
+      color white
+      font-size 20px
+  #opciones
+    width 80%
+    margin 2% 10%
+    float left
+    div 
+      width 40%
+      margin 1% 5%
+      float left
+      label 
+        radio-buttons(black)      
