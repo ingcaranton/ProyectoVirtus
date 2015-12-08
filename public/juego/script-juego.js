@@ -79,12 +79,10 @@ socket.on('tiempo',function(tiempo){
   if(tiempo===0){
     $("#tiempo").css("background-image","url('/images/tiempoEstatico.png')");
     socket.emit('respuesta1', respuesta(), jugador, idPartida);
-    console.log(respuesta()+" "+jugador+" "+idPartida);
   }
 });
 
 socket.on('resultado', function(resultado, rtaCorrecta, jugador1, jugador2){
-  alert(resultado+" "+rtaCorrecta+" "+jugador1.nombre+" "+jugador1.puntos);
   $("#partida").css("display","none");
   $("#resultado").css("display","inherit");
   if(resultado==="correcto"){
@@ -100,19 +98,27 @@ socket.on('resultado', function(resultado, rtaCorrecta, jugador1, jugador2){
   $("#rta2 span").text(rta2);
   $("#rta3 span").text(rta3);
   $("#rta4 span").text(rta4);
-  if(rtaCorrecta===1){
-    $("#rta1 label span").css("border", "2px solid white !important");
-  }else if(rtaCorrecta===2){
-    $("#rta2 label span").css("border", "2px solid white !important");
-  }else if(rtaCorrecta===3){
-    $("#rta3 label span").css("border", "2px solid white !important");
+  if(rtaCorrecta === 1){
+    $("#rta1 label span").css("border", "2px solid white");
+  }else if(rtaCorrecta === 2){
+    $("#rta2 label span").css("border", "2px solid white");
+  }else if(rtaCorrecta === 3){
+    $("#rta3 label span").css("border", "2px solid white");
   }else{
-    $("#rta4 label span").css("border", "2px solid white !important");
+    $("#rta4 label span").css("border", "2px solid white");
   }
-  $("#derecha #jugador1 span#nombre1").text(jugador1.nombre);
-  $("#derecha #jugador1 span#punaje1").text(jugador1.puntos);
-  $("#derecha #jugador2 span#nombre2").text(jugador2.nombre);
-  $("#derecha #jugador2 span#punaje2").text(jugador2.puntos);
+  if(jugador1.nombre===jugador){
+    $("#derecha #jugador1 span#nombre1").text(jugador1.nombre);
+    $("#derecha #jugador1 span#puntaje1").text(jugador1.puntos);
+    $("#derecha #jugador2 span#nombre2").text(jugador2.nombre);
+    $("#derecha #jugador2 span#puntaje2").text(jugador2.puntos);
+  }else{
+    $("#derecha #jugador1 span#nombre1").text(jugador2.nombre);
+    $("#derecha #jugador1 span#puntaje1").text(jugador2.puntos);
+    $("#derecha #jugador2 span#nombre2").text(jugador1.nombre);
+    $("#derecha #jugador2 span#puntaje2").text(jugador1.puntos);
+  }
+  
 });
 
 //grupo de respuestas
