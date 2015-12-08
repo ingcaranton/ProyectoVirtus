@@ -60,7 +60,7 @@ socket.on('pregunta1', function(pregunta1,jugador1,jugador2,id){
     $("#nombre2").text(jugador1.nombre);
     $("#puntaje2").text(jugador1.puntos);
   }
-  $("#imagenPregunta").attr("src",pregunta1.pregunta.imagen+".png");
+  $("#imagenPregunta").attr("src",pregunta1.pregunta.imagen);
   $("#opcion1 span").text(pregunta1.respuesta1.enunciado);
   $("#opcion2 span").text(pregunta1.respuesta2.enunciado);
   $("#opcion3 span").text(pregunta1.respuesta3.enunciado);
@@ -94,6 +94,7 @@ $("input:checkbox").on('click', function() {
 });
 
 function respuesta(){
+  $("div input[type=checkbox]").attr("disabled","true");
   if($("#opcion1 input").is(':checked')){
     return 1;
   }else if($("#opcion2 input").is(':checked')){

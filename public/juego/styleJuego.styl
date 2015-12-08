@@ -12,18 +12,20 @@
     position absolute
     top 0
     left 0
-    overflow hidden
-    #jugador, #cargando, #partida
+    overflow auto
+    #jugador, #cargando, #partida, #resultado
+      float left
       width 80%
       margin 5% 10%
-      height 80%
       background rgba(0, 0, 1, 0.5)
+    #jugador, #cargando, #partida
+      height 80%
     #jugador
       padding 10% 25%
     #cargando 
-      padding 20% 25%
-    #partida 
-      float left        
+      padding 20% 25%    
+    #resultado
+      height auto 
     
 //ingreso de nombre jugador
   #jugador
@@ -36,24 +38,38 @@
       float left
       text-align center
     label 
-      color #fff     
+      color #fff   
+      font-size 30px  
     input 
       background transparent
-      border 1px solid #fff  
-      color #fff    
+      border 10px double #fff  
+      border-radius 50px
+      color #000    
+      font-size 30px
+    input:focus
+      outline none
     img
       width 40%
       margin 1% 30%
+      border-radius 5px 
+      border-top 7px solid blue
+      border-left 7px solid orange
+      border-right 7px solid red 
+      border-bottom 7px solid green
     
     button
       width 50%
       margin 2% 25%
+      height 50px
       float left
       text-align center
-      background #fff
-      color #000
-      border 2px solid #000
-      border-radius 10px
+      background transparent
+      color #fff
+      background-image url('/images/boton.png')
+      background-size 50%
+      background-repeat no-repeat
+      background-position center
+      border none
     
 //esperando partida
   #cargando
@@ -68,7 +84,7 @@
       float left
 
 //opciones respuesta
-  radio-buttons(color)
+  radio-buttons(color, hover)
       width 100%
       height 100%
       float left
@@ -89,7 +105,7 @@
         color white           
 
       span:hover
-        border 2px solid blue
+        border 2px solid hover
 
       input:checked + span 
         border 2px solid white 
@@ -171,4 +187,79 @@
       margin 1% 5%
       float left
       label 
-        radio-buttons(black)      
+        radio-buttons(black, blue)      
+
+//respuesta
+  #resultado
+    width 80%
+    margin 3% 10%
+    float left
+    #mensaje
+      width 100%
+      text-align center
+      color white 
+      float left
+      margin 2% 0
+      span
+        border-bottom 7px double black
+        font-size 50px
+    #centro
+      width 100%
+      float left
+      div
+        width 50%
+        padding 3%
+        float left
+      #izquierda
+        img 
+          width 100%
+          border-radius 50px 
+          border-top 7px solid blue
+          border-left 7px solid orange
+          border-right 7px solid red 
+          border-bottom 7px solid green
+        #respuestas
+          width 100%
+          float left
+          div 
+            width 100%
+            margin-top 1% 0
+            float left
+            label
+              radio-buttons(black, black)
+          #rta2 label span
+            border 2px solid white !important
+            border-radius 
+      #derecha
+        img 
+          width 80%
+          margin 5% 10%
+        div
+          width 90%
+          float left
+          margin 5%
+          border-bottom 5px dashed black
+          text-align center
+          span 
+            color white
+            font-size 20px
+          img 
+            width 8%
+    #boton
+      width 100%
+      float left
+      margin 3% 0
+      text-align center      
+      button 
+        width 50%
+        margin 2% 25%
+        height 100px
+        float left
+        text-align center
+        background transparent
+        color #fff
+        background-image url('/images/boton.png')
+        background-size 50%
+        background-repeat no-repeat
+        background-position center
+        border none
