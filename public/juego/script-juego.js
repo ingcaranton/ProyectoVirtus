@@ -44,16 +44,35 @@ $("#botonJugador").on("click",function(){
 });
 
 //recibir partida
-socket.on('pregunta1', function(pregunta1,jugador1,jugador2){
+var idPartida="";
+socket.on('pregunta1', function(pregunta1,jugador1,jugador2,id){
+  idPartida=id;
   $("#cargando").css("display","none");
   $("#partida").css("display","inherit");
+  if(jugador1.nombre===jugador){
+    $("#nombre1").text(jugador1.nombre);
+    $("#puntaje1").text(jugador1.puntos);
+    $("#nombre2").text(jugador2.nombre);
+    $("#puntaje2").text(jugador2.puntos);
+  }else{
+    $("#nombre1").text(jugador2.nombre);
+    $("#puntaje1").text(jugador2.puntos);
+    $("#nombre2").text(jugador1.nombre);
+    $("#puntaje2").text(jugador1.puntos);
+  }
+  $("#imagenPregunta").attr("src",pregunta1.pregunta.imagen+".png");
+  $("#opcion1 span").text(pregunta1.respuesta1.enunciado);
+  $("#opcion2 span").text(pregunta1.respuesta2.enunciado);
+  $("#opcion3 span").text(pregunta1.respuesta3.enunciado);
+  $("#opcion4 span").text(pregunta1.respuesta4.enunciado);
 });
 
 socket.on('tiempo',function(tiempo){  
-  if(tiempo<0){
-    //enviar respuesta, usuario
-  }else{
-    $("#tiempo span").text(tiempo);
+  $("#tiempo span").text(tiempo);
+  if(tiempo===0){
+    $("#tiempo").css("background-image","url('/images/tiempoEstatico.png')");
+    socket.emit('respuesta1', respuesta(), jugador, idPartida);
+    console.log(respuesta()+" "+jugador+" "+idPartida);
   }
 });
 
@@ -73,3 +92,17 @@ $("input:checkbox").on('click', function() {
     $box.prop("checked", false);
   }
 });
+
+function respuesta(){
+  if($("#opcion1 input").is(':checked')){
+    return 1;
+  }else if($("#opcion2 input").is(':checked')){
+    return 2;
+  }else if($("#opcion3 input").is(':checked')){
+    return 3;
+  }else if($("#opcion4 input").is(':checked')){
+    return 4;
+  }else{
+    return 0;
+  }
+}
