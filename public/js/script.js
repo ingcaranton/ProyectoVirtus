@@ -3,6 +3,12 @@ var colores=["E65F5F","E65FC7","BC5FE6","7F5FE6","5F9CE6","5FDBE6","5FE6A3","7AE
 $(document).ready(function() {
   var color="#"+colores[aleatorio(0,9)];
   $("body").css("background",color);
+
+  //fecha actual
+    var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+    var f = new Date();
+    var fecha= meses[f.getMonth()] + " " +f.getDate() + " de " + f.getFullYear();
+    $("p#fecha").text(fecha);
   
   //Bajar al final e inicio de la pagina
     var altura = $(document).height();
