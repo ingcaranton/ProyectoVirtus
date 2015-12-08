@@ -4,11 +4,11 @@ module.exports = function(mongoose){
 		id : Number,
 		user1 : {
 			nombre : String,
-			puntos : String
+			puntos : Number
 		},
 		user2 : {
 			nombre : String,
-			puntos : String
+			puntos : Number
 		},
 
 		pregunta1 : {
