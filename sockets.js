@@ -122,7 +122,6 @@ module.exports = function(io) {
 function partidaPregunta(io, id){
     var tiempo=15;
     var si =  setInterval(function(){
-        console.log(tiempo);
         io.to(id).emit("tiempo", tiempo);
         if(tiempo==0){
             clearInterval(si);
@@ -156,7 +155,7 @@ function llenarPartida1(newPartida){
     newPartida.pregunta2.respuesta4.enunciado="Sano";
     newPartida.respuestaCorrecta2=4;
 
-    newPartida.pregunta1.listo=0;
+    newPartida.pregunta3.listo=0;
     newPartida.pregunta3.pregunta.imagen="/images/aprende/comidasBebidas/ensalada.png";
     newPartida.pregunta3.respuesta1.numero=1;
     newPartida.pregunta3.respuesta1.enunciado="Ensalada";
