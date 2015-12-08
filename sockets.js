@@ -31,7 +31,18 @@ module.exports = function(io) {
         socket.on('respuesta', function(respuesta, jugador, id, numPregunta){
             db.partida.findOne({"id":id},function(error,partida){
                 var puntos;
-                if(respuesta==partida.respuestaCorrecta1){
+                var respuestaPregunta=0;
+                if(numPregunta==1){
+                    respuestaPregunta=partida.respuestaCorrecta1;
+                }
+                if(numPregunta==2){
+                    respuestaPregunta=partida.respuestaCorrecta2;
+                }
+                if(numPregunta==3){
+                    respuestaPregunta=partida.respuestaCorrecta3
+                }
+
+                if(respuesta==respuestaPregunta){
                     if(partida.user1.nombre==jugador){
                         puntos=partida.user1.puntos+20;
                         db.partida.findOneAndUpdate({"id":id},{$set:{"user1.puntos":puntos}}, function(error, partida){
@@ -83,6 +94,7 @@ module.exports = function(io) {
         }); 
 
         socket.on('listoPregunta', function(id, numPregunta){
+            console.log("entro");
                 db.partida.findOne({"id":id},function(error, partida){
                     if(numPregunta==2){
                         if(partida.pregunta2.listo==0){

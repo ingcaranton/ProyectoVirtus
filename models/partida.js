@@ -93,7 +93,9 @@ module.exports = function(mongoose){
 			}
 		},
 		tiempo : Number,
-		respuestaCorrecta1: Number
+		respuestaCorrecta1: Number,
+		respuestaCorrecta2: Number,
+		respuestaCorrecta3: Number
 	});
 	return mongoose.model('partida', partidaSchema);
 }
