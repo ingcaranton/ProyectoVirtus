@@ -57,7 +57,7 @@ $("#botonJugador").on("click",function(){
 });
 
 //recibir partida - pregunta 1
-var idPartida="";
+var idPartida="", numPregunta=1;
 var src="";
 var rta1="", rta2="", rta3="", rta4="";
 
@@ -66,7 +66,7 @@ socket.on('pregunta1', function(pregunta1,jugador1,jugador2,id){
 });
 
 socket.on('tiempo',function(tiempo){  
-  tiempoRespuesta(tiempo, 1);
+  tiempoRespuesta(tiempo, numPregunta);
 });
 
 socket.on('resultado', function(resultado, rtaCorrecta, jugador1, jugador2){
@@ -79,19 +79,12 @@ socket.on('pregunta2', function(pregunta2, jugador1, jugador2, id){
   generarPregunta(pregunta2, jugador1, jugador2, id);
 });
 
-socket.on('tiempo',function(tiempo){
-  tiempoRespuesta(tiempo, 2);
-});
-
 //pregunta3
-sigPregunta(3);
-
-
+//sigPregunta(3);
 
 //funciones
 
 function extraerRespuesta(){
-  $("div input[type=checkbox]").attr("disabled","true");
   if($("#opcion1 input").is(':checked')){
     return 1;
   }else if($("#opcion2 input").is(':checked')){
@@ -106,6 +99,7 @@ function extraerRespuesta(){
 }
 
 function generarPregunta(pregunta,jugador1,jugador2,id){
+  $("#partida input[type=checkbox]").prop('checked', false);
   idPartida=id;
   $("#cargando").css("display","none");
   $("#partida").css("display","inherit");
@@ -135,12 +129,13 @@ function generarPregunta(pregunta,jugador1,jugador2,id){
 function tiempoRespuesta(tiempo, num){
   $("#tiempo span").text(tiempo);
   if(tiempo===0){
-    $("#tiempo").css("background-image","url('/images/tiempoEstatico.png')");
     socket.emit('respuesta', extraerRespuesta(), jugador, idPartida, num);
+    numPregunta+=1;
   }
 }
 
 function resultadoPregunta(resultado, rtaCorrecta, jugador1, jugador2){
+  $("#resultado #boton button").removeAttr("disabled");
   $("#partida").css("display","none");
   $("#resultado").css("display","inherit");
   if(resultado==="correcto"){
@@ -173,9 +168,12 @@ function resultadoPregunta(resultado, rtaCorrecta, jugador1, jugador2){
 
 function sigPregunta(numPregunta){
   $("#resultado #boton button").on("click",function(){
+
     $("#resultado").css("display","none");
+    $("#resultado #respuestas div span").css("border","2px solid black");
     $("#cargando").css("display","inherit");
     $("#mensaje").text("ESPERANDO PREGUNTA");
+    $(this).attr("disabled","true");
     socket.emit('listoPregunta', idPartida, numPregunta);
   });
 }
