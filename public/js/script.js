@@ -4,6 +4,16 @@ $(document).ready(function() {
   var color="#"+colores[aleatorio(0,9)];
   $("body").css("background",color);
 
+  //confirmacion salir de juego
+    if(direccionAbsoluta(window.location.pathname,1)==="juega" && !direccionAbsoluta(window.location.pathname,2)){
+      $(window).bind('beforeunload', function(){
+       return 'Termine su partida antes de salir';
+       });
+       $('#contactform').submit(function(){
+       $(window).unbind('beforeunload');
+        return false;
+       });
+    }
   //fecha actual
     var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
     var f = new Date();

@@ -323,3 +323,93 @@
         background-repeat no-repeat
         background-position center
         border none
+        
+//TABLA
+#tabla 
+  width 90%
+  margin 2% 5%
+  h2 
+    width 100%
+    color white
+    float left
+    text-align center
+    margin-bottom 4%
+  table
+    margin 2% 0
+    thead
+      tr th 
+        color black
+        font-size 16px
+    tbody
+      tr td 
+        color white 
+        border 1px solid white
+  #boton 
+    width 100%
+    text-align center
+    button 
+      width 30%
+      margin 1% 35%
+      height 90px
+      float left
+      text-align center
+      background transparent
+      color #fff
+      background-image url('/images/boton.png')
+      background-size 50%
+      background-repeat no-repeat
+      background-position center
+      border none
+table.width200,table.rwd_auto 
+  border 1px solid #ccc
+  width 100% 
+  margin 0 0 50px 0
+  
+.width200 th,.rwd_auto th
+  background #ccc 
+  padding 5px 
+  text-align center
+  border 2px solid white
+.width200 td,.rwd_auto td 
+  border-bottom 1px solid #ccc 
+  padding 5px
+  text-align center
+.width200 tr:last-child td, .rwd_auto tr:last-child td
+  border0
+        
+.rwd 
+  width 100%
+  overflow auto
+        
+.rwd table.rwd_auto 
+  width auto
+  min-width 100%
+.rwd_auto th,.rwd_auto td 
+  white-space nowrap
+            
+@media only screen and (max-width: 760px), (min-width: 768px) and (max-width: 1024px)      
+  table.width200, .width200 thead, .width200 tbody, .width200 th, .width200 td, .width200 tr
+    display block
+        
+  .width200 thead tr
+    position absolute
+    top -9999px
+    left -9999px
+        
+  .width200 tr 
+    border 1px solid #ccc
+        
+  .width200 td 
+    border none
+    border-bottom 1px solid #ccc 
+    position relative
+    padding-left: 50%
+    text-align:left
+        
+    .width200 td:before 
+      position absolute 
+      top: 6px 
+      left 6px 
+      width 45% 
+      padding-right 10px 
+      white-space nowrap

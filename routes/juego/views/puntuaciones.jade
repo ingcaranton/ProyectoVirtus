@@ -3,5 +3,20 @@ block head
   link(rel='stylesheet', href='/juego/styleJuego.css')
 block content  
   #juego
+    div.rwd#tabla
+      h2 PARTIDAS A LA FECHA
+      table#tablaPuntuaciones.rwd_auto.table
+        thead
+          tr 
+            th FECHA
+            th JUGADOR 1
+            th PUNTAJE 1
+            th VS
+            th PUNTAJE 2
+            th JUGADOR 2
+        tbody
+      #boton
+        button(type="button" onclick="document.location.href='/juega'") JUGAR
+
   script(type='text/javascript', src='/js/socket.io-1.1.0.js')
   script(type='text/javascript' src='/juego/script-juego.js')

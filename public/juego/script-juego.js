@@ -242,3 +242,24 @@ function comparacion(punt1, punt2){
     return 2;
   }
 }
+
+
+function fechaPartida(fecha){
+  var f= new Date(fecha);
+  var meses = new Array ("Enero","Febrero","Marzo","Abril","Mayo","Junio","Julio","Agosto","Septiembre","Octubre","Noviembre","Diciembre");
+  var d= meses[f.getMonth()] + " " +f.getDate() + " de " + f.getFullYear();
+  return d;
+}
+
+socket.emit('tabla');
+
+
+socket.on('tabla',function(tabla){
+  var tamaño=tabla.length;
+  for(var i=0; i<tamaño; i++){
+    var fecha=fechaPartida(tabla[i].id);
+    $("#juego table#tablaPuntuaciones  > tbody:last").append("<tr><td>"+fecha+"</td>"+
+      "<td>"+tabla[i].user1.nombre+"</td>"+"<td>"+tabla[i].user1.puntos+"</td>"+
+      "<td> vs </td>"+"<td>"+tabla[i].user2.puntos+"</td>"+"<td>"+tabla[i].user2.nombre+"</td>"+"</tr>");
+  }
+});
