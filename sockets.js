@@ -1,5 +1,10 @@
 module.exports = function(io) {
     io.on('connection', function (socket) {
+        socket.on('tabla', function(){
+            db.partida.find().exec(function(err, partidas){
+                socket.emit("tabla", partidas);
+            })
+        });
         socket.on('jugador', function(jugador){
         	db.partida.findOne({"user2.nombre":""},function(error,partida){
         		if(partida==null){
@@ -15,7 +20,7 @@ module.exports = function(io) {
         			var updatePartida = new db.partida();
         			updatePartida.user2.nombre=jugador;
                     updatePartida.user2.puntos=0;
-        			db.partida.findOneAndUpdate({"user1.nombre":partida.user1.nombre},
+        			db.partida.findOneAndUpdate({"id":partida.id},
         				{$set:{"user2":updatePartida.user2}},function(partida){
         				   	db.partida.findOne({"user2.nombre":jugador},function(error,partida2){
                                 socket.join(partida2.id, function(){
@@ -56,7 +61,8 @@ module.exports = function(io) {
                             if(numPregunta==3){
                                 respuestaCorrecta=partida.respuestaCorrecta3
                             }
-                            socket.emit("resultado", "correcto", respuestaCorrecta, partida.user1, partida.user2);
+                            io.to(id).emit("resultado", respuestaCorrecta, partida.user1, partida.user2);
+                            socket.emit("resultado2", "corecta");
                         });
                     }else{
                         puntos=partida.user2.puntos+20;
@@ -71,10 +77,12 @@ module.exports = function(io) {
                             if(numPregunta==3){
                                 respuestaCorrecta=partida.respuestaCorrecta3
                             }
-                            socket.emit("resultado", "correcto", respuestaCorrecta, partida.user1, partida.user2);
+                            io.to(id).emit("resultado", respuestaCorrecta, partida.user1, partida.user2);
+                            socket.emit("resultado2", "corecta");
                         });
                     }
                 }else{
+
                         db.partida.findOne({"id":id}, function(error, partida){
                             var respuestaCorrecta=0;
                             if(numPregunta==1){
@@ -86,7 +94,8 @@ module.exports = function(io) {
                             if(numPregunta==3){
                                 respuestaCorrecta=partida.respuestaCorrecta3
                             }
-                            socket.emit("resultado", "incorrecto", respuestaCorrecta, partida.user1, partida.user2);
+                            io.to(id).emit("resultado", respuestaCorrecta, partida.user1, partida.user2);
+                            socket.emit("resultado2", "incorecta");
                         });  
                 }
 

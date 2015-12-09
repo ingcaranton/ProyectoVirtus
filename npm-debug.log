@@ -17,9 +17,9 @@
 10 error You can get their info via:
 10 error     npm owner ls ProyectoVirtus
 10 error There is likely additional logging output above.
-11 error System Linux 4.2.0-19-generic
+11 error System Linux 3.19.0-37-generic
 12 error command "/usr/bin/nodejs" "/usr/bin/npm" "start"
-13 error cwd /home/viviana/Dropbox/UniversidadViviana/VIRTUS/PROYECTO/ProyectoVirtus
+13 error cwd /home/arley/Dropbox/proyectos/ProyectoVirtus
 14 error node -v v0.10.25
 15 error npm -v 1.4.21
 16 error code ELIFECYCLE
