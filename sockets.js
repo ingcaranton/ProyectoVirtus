@@ -22,7 +22,7 @@ module.exports = function(io) {
                     updatePartida.user2.puntos=0;
         			db.partida.findOneAndUpdate({"id":partida.id},
         				{$set:{"user2":updatePartida.user2}},function(partida){
-        				   	db.partida.findOne({"user2.nombre":jugador},function(error,partida2){
+        				   	db.partida.findOne({"id":partida.id},function(error,partida2){
                                 socket.join(partida2.id, function(){
         				   		//pregunta1
         						  io.to(partida2.id).emit('pregunta1', partida2.pregunta1, partida2.user1, partida2.user2, partida2.id);
@@ -62,7 +62,7 @@ module.exports = function(io) {
                                 respuestaCorrecta=partida.respuestaCorrecta3
                             }
                             io.to(id).emit("resultado", respuestaCorrecta, partida.user1, partida.user2);
-                            socket.emit("resultado2", "corecta");
+                            socket.emit("resultado2", "correcta");
                         });
                     }else{
                         puntos=partida.user2.puntos+20;
@@ -78,7 +78,7 @@ module.exports = function(io) {
                                 respuestaCorrecta=partida.respuestaCorrecta3
                             }
                             io.to(id).emit("resultado", respuestaCorrecta, partida.user1, partida.user2);
-                            socket.emit("resultado2", "corecta");
+                            socket.emit("resultado2", "correcta");
                         });
                     }
                 }else{
@@ -95,7 +95,7 @@ module.exports = function(io) {
                                 respuestaCorrecta=partida.respuestaCorrecta3
                             }
                             io.to(id).emit("resultado", respuestaCorrecta, partida.user1, partida.user2);
-                            socket.emit("resultado2", "incorecta");
+                            socket.emit("resultado2", "incorrecta");
                         });  
                 }
 
