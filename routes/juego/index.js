@@ -9,3 +9,10 @@ app.route('/')
     title : 'Juguemos con la Señas / Juega'
   });
 });
+
+app.route('/puntuaciones')
+.get(function(req, res){
+  res.render('puntuaciones', {
+    title : 'Juguemos con la Señas / Puntuaciones'
+  });
+});

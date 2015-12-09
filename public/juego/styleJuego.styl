@@ -18,14 +18,18 @@
       width 80%
       margin 5% 10%
       background rgba(0, 0, 1, 0.5)
-    #jugador, #cargando, #partida
+    #jugador, #cargando, #partida, #resultado
       height 80%
     #jugador
       padding 10% 25%
     #cargando 
       padding 15% 25%    
-    #resultado
-      height auto 
+    #resultado 
+      #centro
+        width 70%
+        margin 1% 15%
+      button
+        margin-top -8%
     
 //ingreso de nombre jugador
   #jugador
@@ -202,7 +206,7 @@
       margin 2% 0
       span
         border-bottom 7px double black
-        font-size 50px
+        font-size 30px
     #centro
       width 100%
       float left
@@ -211,8 +215,9 @@
         padding 3%
         float left
       #izquierda
+        text-align center
         img 
-          width 100%
+          width 60%
           border-radius 50px 
           border-top 7px solid blue
           border-left 7px solid orange
@@ -222,15 +227,15 @@
           width 100%
           float left
           div 
-            width 100%
-            margin-top 1% 0
+            width 48%
+            margin 1%
             float left
             label
               radio-buttons(black, black)
       #derecha
         img 
-          width 80%
-          margin 5% 10%
+          width 60%
+          margin 5% 20%
         div
           width 90%
           float left
@@ -248,8 +253,8 @@
       margin 3% 0
       text-align center      
       button 
-        width 50%
-        margin -2% 25%
+        width 40%
+        margin -3% 30%
         height 90px
         float left
         text-align center
@@ -260,6 +265,7 @@
         background-repeat no-repeat
         background-position center
         border none
+        font-size 15px
         
 //Final Partida
   #finalPartida

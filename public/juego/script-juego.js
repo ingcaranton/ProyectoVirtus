@@ -69,8 +69,19 @@ socket.on('tiempo',function(tiempo){
   tiempoRespuesta(tiempo, numPregunta);
 });
 
-socket.on('resultado', function(resultado, rtaCorrecta, jugador1, jugador2){
-    resultadoPregunta(resultado, rtaCorrecta, jugador1, jugador2);
+socket.on('resultado2', function(resultado){
+  if(resultado==="correcta"){
+    $("#resultado #mensaje span").text("¡RESPUESTA CORRECTA!");
+    $("img#reaccion").attr("src","/images/bien.gif");
+
+  }else{
+    $("#resultado #mensaje span").text("¡RESPUESTA INCORRECTA!");
+    $("img#reaccion").attr("src","/images/mal.gif");
+  }
+});
+
+socket.on('resultado', function(rtaCorrecta, jugador1, jugador2){
+    resultadoPregunta(rtaCorrecta, jugador1, jugador2);
 });
 
 //pregunta 2
@@ -141,18 +152,11 @@ var p2=0;
 var j1="";
 var j2="";
 
-function resultadoPregunta(resultado, rtaCorrecta, jugador1, jugador2){
+function resultadoPregunta(rtaCorrecta, jugador1, jugador2){
   $("#resultado #boton button").removeAttr("disabled");
   $("#partida").css("display","none");
   $("#resultado").css("display","inherit");
-  if(resultado==="correcto"){
-    $("#resultado #mensaje span").text("¡RESPUESTA CORRECTA!");
-    $("img#reaccion").attr("src","/images/bien.gif");
-
-  }else{
-    $("#resultado #mensaje span").text("¡RESPUESTA INCORRECTA!");
-    $("img#reaccion").attr("src","/images/mal.gif");
-  }
+  
   $("#izquierda img").attr("src",src);
   $("#rta1 span").text(rta1);
   $("#rta2 span").text(rta2);
@@ -173,7 +177,6 @@ function resultadoPregunta(resultado, rtaCorrecta, jugador1, jugador2){
   $("#derecha #jugador2 span#puntaje2").text(jugador2.puntos);
   $("#resultado #boton button").attr("numero", numPregunta);
   if(numPregunta>3){
-    $("#resultado #boton button").text("CONTINUAR");
     j1 = $("#derecha #jugador1 span#nombre1").text();
     p1 = $("#derecha #jugador1 span#puntaje1").text();
     j2 = $("#derecha #jugador2 span#nombre2").text();
