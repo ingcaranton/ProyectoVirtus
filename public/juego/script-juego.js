@@ -218,12 +218,6 @@ $("#resultado #boton button").on("click",function(){
   }
 });
 
-$("#seguir").on("click",function(){
-  socket.emit('jugador', jugador);
-  $("#finalPartida").css("display","none");
-  $("#cargando").css("display","inherit");
-  $("#mensaje").text("ESPERANDO CONTRINCANTE PARA " + jugador);
-});
 
 function evaluacionGana(){
   if(j1===jugador){
@@ -243,6 +237,8 @@ function comparacion(punt1, punt2){
   }
 }
 
+
+//TABLA PUNTUACIONES
 
 function fechaPartida(fecha){
   var f= new Date(fecha);
