@@ -136,6 +136,11 @@ function tiempoRespuesta(tiempo, num){
   }
 }
 
+var p1=0;
+var p2=0;
+var j1="";
+var j2="";
+
 function resultadoPregunta(resultado, rtaCorrecta, jugador1, jugador2){
   $("#resultado #boton button").removeAttr("disabled");
   $("#partida").css("display","none");
@@ -166,8 +171,14 @@ function resultadoPregunta(resultado, rtaCorrecta, jugador1, jugador2){
   $("#derecha #jugador1 span#puntaje1").text(jugador1.puntos);
   $("#derecha #jugador2 span#nombre2").text(jugador2.nombre);
   $("#derecha #jugador2 span#puntaje2").text(jugador2.puntos);
-
   $("#resultado #boton button").attr("numero", numPregunta);
+  if(numPregunta>3){
+    $("#resultado #boton button").text("CONTINUAR");
+    j1 = $("#derecha #jugador1 span#nombre1").text();
+    p1 = $("#derecha #jugador1 span#puntaje1").text();
+    j2 = $("#derecha #jugador2 span#nombre2").text();
+    p2 = $("#derecha #jugador2 span#puntaje2").text();
+  }
 }
 
 
@@ -175,9 +186,56 @@ $("#resultado #boton button").on("click",function(){
   var numero = $(this).attr("numero");
   $("#resultado").css("display","none");
   $("#resultado #respuestas div span").css("border","2px solid black");
-  $("#cargando").css("display","inherit");
-  $("#mensaje").text("ESPERANDO PREGUNTA");
-  $(this).attr("disabled","true");
-  socket.emit('listoPregunta', idPartida, numero);
-  alert(numero);
+  if(numero<=3){
+    $("#cargando").css("display","inherit");
+    $("#mensaje").text("ESPERANDO PREGUNTA");
+    $(this).attr("disabled","true");
+    socket.emit('listoPregunta', idPartida, numero);
+  }else{
+    $("#finalPartida").css("display","inherit");
+    var mensaje=""
+    var direccionImagen=""
+    var evaluacion=evaluacionGana();
+    if(evaluacion===0){
+      mensaje="¡FELICIDADES GANASTE!";
+      direccionImagen="/images/celebrarA.gif";
+    }else if(evaluacion===1){
+      mensaje="¡LO SENTIMOS, PERDISTE!";
+      direccionImagen="/images/llorar.gif";
+    }else{
+      mensaje="¡HAZ EMPATADO!";
+      direccionImagen="/images/empate.gif";
+    }
+    $("#mensajeFinalPartida span").text(mensaje);
+    $("#finalPartida img#imagenFinal").attr("src", direccionImagen);
+    $("#puntajesFinales #jugador1 span#nombre1").text(j1);
+    $("#puntajesFinales #jugador1 span#puntaje1").text(p1);
+    $("#puntajesFinales #jugador2 span#nombre2").text(j2);
+    $("#puntajesFinales #jugador2 span#puntaje2").text(p2);
+  }
 });
+
+$("#seguir").on("click",function(){
+  socket.emit('jugador', jugador);
+  $("#finalPartida").css("display","none");
+  $("#cargando").css("display","inherit");
+  $("#mensaje").text("ESPERANDO CONTRINCANTE PARA " + jugador);
+});
+
+function evaluacionGana(){
+  if(j1===jugador){
+    return comparacion(p1, p2);
+  }else{
+    return comparacion(p2, p1);
+  }
+}
+
+function comparacion(punt1, punt2){
+  if(punt1>punt2){
+    return 0;
+  }else if(punt1<punt2){
+    return 1;
+  }else{
+    return 2;
+  }
+}
