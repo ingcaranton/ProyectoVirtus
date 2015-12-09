@@ -21,7 +21,7 @@ module.exports = function(io) {
         			updatePartida.user2.nombre=jugador;
                     updatePartida.user2.puntos=0;
         			db.partida.findOneAndUpdate({"id":partida.id},
-        				{$set:{"user2":updatePartida.user2}},function(partida){
+        				{$set:{"user2":updatePartida.user2}},function(err, partida){
         				   	db.partida.findOne({"id":partida.id},function(error,partida2){
                                 socket.join(partida2.id, function(){
         				   		//pregunta1
